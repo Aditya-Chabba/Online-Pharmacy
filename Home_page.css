@@ -1,0 +1,21 @@
+.mainbody{
+    background-color: #F6F8D5;
+}
+.navbar{
+    text-align: center;
+    display: inline-block;
+    padding: 10px;
+}
+
+.navbar a{
+    text-decoration: none;
+    font-weight: bold;
+    color: #205781 ;
+    margin: 0 70px;
+}
+
+
+/* #F6F8D5
+#98D2C0
+#4F959D
+#205781 */
