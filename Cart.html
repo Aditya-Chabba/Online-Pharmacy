@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shopping Cart | Herbal-Heal</title>
+    <link rel="stylesheet" href="cart.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <div class="logo">Herbal<span>Heal</span></div>
+        <ul class="nav-links">
+          <li><a href="/dashboard.html">Home</a></li>
+          <li><a href="/buymedicine.html" class="active">Buy Medicines</a></li>
+          <li><a href="#records">Health Records</a></li>
+          <li><a href="/MyOrders.html">My Orders</a></li>
+          <li><a href="/Aboutus.html">About Us</a></li>
+          <li><a href="/ContactUs.html">Contact</a></li>
+          <li>
+            <a href="/Cart.html"
+              ><i class="fas fa-shopping-cart"></i>
+              <span class="cart-count">0</span></a
+            >
+          </li>
+        </ul>
+        <div class="mobile-menu-toggle">
+          <i class="fas fa-bars"></i>
+        </div>
+      </nav>
+    </header>
+
+    <main class="cart-container">
+      <h1>Your Shopping Cart</h1>
+
+      <div class="cart-items">
+        <!-- Example Cart Item -->
+        <div class="cart-item">
+          <img src="https://via.placeholder.com/80" alt="Medicine Name" />
+          <div class="item-details">
+            <h3>Herbal Cough Syrup</h3>
+            <p>Price: ₹120</p>
+            <div class="quantity-control">
+              <button>-</button>
+              <input type="number" value="1" min="1" />
+              <button>+</button>
+            </div>
+          </div>
+          <div class="item-total">₹120</div>
+        </div>
+
+        <!-- Add more cart-item blocks dynamically -->
+      </div>
+
+      <div class="cart-summary">
+        <h2>Order Summary</h2>
+        <p>Total Items: <span id="total-items">1</span></p>
+        <p>Total Amount: ₹<span id="total-amount">120</span></p>
+        <button class="checkout-btn">Proceed to Checkout</button>
+      </div>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 Herbal-Heal. All rights reserved.</p>
+      <nav class="footer-nav">
+        <a href="/privacy-policy.html">Privacy Policy</a> |
+        <a href="/terms.html">Terms of Service</a> |
+        <a href="/contact.html">Contact Us</a>
+      </nav>
+    </footer>
+
+    <script type="module" src="cart.js"></script>
+  </body>
+</html>
