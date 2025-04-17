@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Herbal-Heal | Upload Prescription</title>
+    <style>
+        :root {
+            --primary-green: #3a7563;
+            --light-green: #8cb369;
+            --dark-green: #29584a;
+            --beige: #f2e8cf;
+            --light-beige: #f9f5eb;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light-beige);
+            color: #333;
+        }
+        
+        header {
+            background-color: var(--primary-green);
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .logo-icon {
+            font-size: 2rem;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1, h2, h3 {
+            color: var(--dark-green);
+        }
+        
+        .form-section {
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background-color: var(--beige);
+            border-radius: 8px;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--dark-green);
+        }
+        
+        input, textarea, select {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        
+        .file-input-wrapper {
+            position: relative;
+            margin-top: 10px;
+        }
+        
+        .file-input-label {
+            display: block;
+            padding: 12px 20px;
+            background-color: var(--light-green);
+            color: white;
+            text-align: center;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .file-input-label:hover {
+            background-color: var(--primary-green);
+        }
+        
+        #prescription-file {
+            display: none;
+        }
+        
+        .file-name {
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        button {
+            padding: 1rem 2rem;
+            background-color: var(--primary-green);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        button:hover {
+            background-color: var(--dark-green);
+        }
+        
+        .saved-prescriptions {
+            margin-top: 3rem;
+        }
+        
+        .prescription-card {
+            background-color: var(--beige);
+            padding: 1rem;
+            margin-bottom: -1rem;
+            border-radius: 4px;
+            margin-top: 1rem;
+        }
+        
+        .prescription-card h3 {
+            margin-bottom: 0.5rem;
+        }
+        
+        .prescription-card p {
+            margin-bottom: 0.3rem;
+            font-size: 0.9rem;
+        }
+        
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .action-buttons button {
+            padding: 0.5rem 1rem;
+            font-size: 0.9rem;
+        }
+        
+        .delete-btn {
+            background-color: #e63946;
+        }
+        
+        .delete-btn:hover {
+            background-color: #c1121f;
+        }
+        
+        .no-prescriptions {
+            color: #666;
+            font-style: italic;
+            text-align: center;
+            margin: 2rem 0;
+        }
+        
+        .success-message {
+            background-color: #d4edda;
+            color: #155724;
+            padding: 1rem;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+            display: none;
+        }
+        
+        footer {
+            background-color: var(--primary-green);
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 3rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <span class="logo-icon">🌿</span>
+            <h1>Herbal-Heal</h1>
+        </div>
+        <p>Your Natural Health Pharmacy</p>
+    </header>
+    
+    <div class="container">
+        <h2>Upload Your Prescription</h2>
+        <p>Please fill in the details below and upload your prescription. We'll process it and get back to you shortly.</p>
+        
+        <div id="success-message" class="success-message">
+            Prescription uploaded successfully and saved to your local storage!
+        </div>
+        
+        <div class="form-section">
+            <form id="prescription-form">
+                <div class="form-group">
+                    <label for="patient-name">Patient Name*</label>
+                    <input type="text" id="patient-name" name="patient-name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="patient-email">Email Address*</label>
+                    <input type="email" id="patient-email" name="patient-email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="patient-phone">Phone Number*</label>
+                    <input type="tel" id="patient-phone" name="patient-phone" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="prescription-date">Prescription Date*</label>
+                    <input type="date" id="prescription-date" name="prescription-date" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="doctor-name">Doctor's Name*</label>
+                    <input type="text" id="doctor-name" name="doctor-name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Prescription Image (JPG, PNG or PDF)*</label>
+                    <div class="file-input-wrapper">
+                        <label for="prescription-file" class="file-input-label">Choose File</label>
+                        <input type="file" id="prescription-file" name="prescription-file" accept=".jpg,.jpeg,.png,.pdf" required>
+                        <div id="file-name" class="file-name">No file chosen</div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="additional-notes">Additional Notes</label>
+                    <textarea id="additional-notes" name="additional-notes" rows="4"></textarea>
+                </div>
+                
+                <button type="submit">Submit Prescription</button>
+            </form>
+        </div>
+        
+        <div class="saved-prescriptions">
+            <h2>Your Saved Prescriptions</h2>
+            <div id="prescriptions-list">
+                <p class="no-prescriptions">No saved prescriptions found.</p>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 Herbal-Heal Pharmacy. All rights reserved.</p>
+        <p>For emergency services, please call our hotline: 1-800-HERBHEAL</p>
+    </footer>
+    
+    <script>
+        // Display file name when selected
+        document.getElementById('prescription-file').addEventListener('change', function(e) {
+            const fileName = e.target.files[0] ? e.target.files[0].name : 'No file chosen';
+            document.getElementById('file-name').textContent = fileName;
+        });
+        
+        // Form submission handling
+        document.getElementById('prescription-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const patientName = document.getElementById('patient-name').value;
+            const patientEmail = document.getElementById('patient-email').value;
+            const patientPhone = document.getElementById('patient-phone').value;
+            const prescriptionDate = document.getElementById('prescription-date').value;
+            const doctorName = document.getElementById('doctor-name').value;
+            const additionalNotes = document.getElementById('additional-notes').value;
+            
+            // Get file information
+            const fileInput = document.getElementById('prescription-file');
+            const fileName = fileInput.files[0] ? fileInput.files[0].name : '';
+            
+            // Create a unique ID for the prescription
+            const prescriptionId = 'rx_' + Date.now();
+            
+            // Create prescription object
+            const prescription = {
+                id: prescriptionId,
+                patientName,
+                patientEmail,
+                patientPhone,
+                prescriptionDate,
+                doctorName,
+                fileName,
+                additionalNotes,
+                dateSubmitted: new Date().toISOString()
+            };
+            
+            // Get existing prescriptions from local storage
+            let prescriptions = JSON.parse(localStorage.getItem('herbalhealPrescriptions')) || [];
+            
+            // Add new prescription
+            prescriptions.push(prescription);
+            
+            // Save back to local storage
+            localStorage.setItem('herbalhealPrescriptions', JSON.stringify(prescriptions));
+            
+            // Show success message
+            const successMessage = document.getElementById('success-message');
+            successMessage.style.display = 'block';
+            
+            // Reset form
+            document.getElementById('prescription-form').reset();
+            document.getElementById('file-name').textContent = 'No file chosen';
+            
+            // Refresh prescription list
+            loadPrescriptions();
+            
+            // Hide success message after 5 seconds
+            setTimeout(() => {
+                successMessage.style.display = 'none';
+            }, 5000);
+        });
+        
+        // Function to load prescriptions from local storage
+        function loadPrescriptions() {
+            const prescriptionsList = document.getElementById('prescriptions-list');
+            const prescriptions = JSON.parse(localStorage.getItem('herbalhealPrescriptions')) || [];
+            
+            if (prescriptions.length === 0) {
+                prescriptionsList.innerHTML = '<p class="no-prescriptions">No saved prescriptions found.</p>';
+                return;
+            }
+            
+            // Sort prescriptions by date (newest first)
+            prescriptions.sort((a, b) => new Date(b.dateSubmitted) - new Date(a.dateSubmitted));
+            
+            // Generate HTML for each prescription
+            let html = '';
+            prescriptions.forEach(prescription => {
+                const submittedDate = new Date(prescription.dateSubmitted).toLocaleDateString();
+                
+                html += `
+                <div class="prescription-card" data-id="${prescription.id}">
+                    <h3>${prescription.patientName}</h3>
+                    <p><strong>Submitted:</strong> ${submittedDate}</p>
+                    <p><strong>Doctor:</strong> ${prescription.doctorName}</p>
+                    <p><strong>Prescription Date:</strong> ${prescription.prescriptionDate}</p>
+                    <p><strong>File:</strong> ${prescription.fileName}</p>
+                    <div class="action-buttons">
+                        <button onclick="viewPrescription('${prescription.id}')">View Details</button>
+                        <button class="delete-btn" onclick="deletePrescription('${prescription.id}')">Delete</button>
+                    </div>
+                </div>
+                `;
+            });
+            
+            prescriptionsList.innerHTML = html;
+        }
+        
+        // Function to view prescription details
+        function viewPrescription(id) {
+            const prescriptions = JSON.parse(localStorage.getItem('herbalhealPrescriptions')) || [];
+            const prescription = prescriptions.find(p => p.id === id);
+            
+            if (prescription) {
+                alert(`
+                    Patient: ${prescription.patientName}
+                    Email: ${prescription.patientEmail}
+                    Phone: ${prescription.patientPhone}
+                    Prescription Date: ${prescription.prescriptionDate}
+                    Doctor: ${prescription.doctorName}
+                    File: ${prescription.fileName}
+                    Additional Notes: ${prescription.additionalNotes || 'None'}
+                    Submitted on: ${new Date(prescription.dateSubmitted).toLocaleString()}
+                `);
+            }
+        }
+        
+        // Function to delete prescription
+        function deletePrescription(id) {
+            if (confirm('Are you sure you want to delete this prescription?')) {
+                let prescriptions = JSON.parse(localStorage.getItem('herbalhealPrescriptions')) || [];
+                prescriptions = prescriptions.filter(p => p.id !== id);
+                localStorage.setItem('herbalhealPrescriptions', JSON.stringify(prescriptions));
+                loadPrescriptions();
+            }
+        }
+        
+        // Load prescriptions when page loads
+        document.addEventListener('DOMContentLoaded', loadPrescriptions);
+    </script>
+</body>
+</html>
