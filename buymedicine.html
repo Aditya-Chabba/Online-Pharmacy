@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="description"
+      content="Browse and buy medicines online – Herbal-Heal"
+    />
+    <meta name="author" content="Herbal-Heal" />
+    <meta
+      name="keywords"
+      content="buy medicines, herbal medicines, online pharmacy, health products, Herbal Heal"
+    />
+    <title>Buy Medicines - Herbal-Heal</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="dashboard.css" />
+    <link rel="stylesheet" href="buymedicine.css" />
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <div class="logo">Herbal<span>Heal</span></div>
+        <ul class="nav-links">
+          <li><a href="/dashboard.html">Home</a></li>
+          <li><a href="/buymedicine.html" class="active">Buy Medicines</a></li>
+          <li><a href="#records">Health Records</a></li>
+          <li><a href="#offers">Offers</a></li>
+          <li><a href="/Aboutus.html">About Us</a></li>
+          <li><a href="#">Contact</a></li>
+          <li>
+            <a href="#cart"
+              ><i class="fas fa-shopping-cart"></i>
+              <span class="cart-count">0</span></a
+            >
+          </li>
+        </ul>
+        <div class="mobile-menu-toggle">
+          <i class="fas fa-bars"></i>
+        </div>
+      </nav>
+    </header>
+
+    <main class="main-content">
+      <section class="search-section">
+        <div class="container">
+          <div class="search-container">
+            <input
+              type="text"
+              id="search-input"
+              placeholder="Search medicines, herbs, supplements..."
+            />
+            <button id="search-button"><i class="fas fa-search"></i></button>
+          </div>
+        </div>
+      </section>
+
+      <section class="buy-medicines" id="buy">
+        <div class="container">
+          <div class="page-title">
+            <h1>Buy Medicines</h1>
+            <p>
+              Find high-quality herbal medicines, supplements, and health
+              products
+            </p>
+          </div>
+
+          <div class="medicines-layout">
+            <!-- Filters Section -->
+            <div class="filters-sidebar">
+              <div class="filter-group">
+                <h3>Categories</h3>
+                <ul class="filter-list">
+                  <li>
+                    <input
+                      type="checkbox"
+                      id="herbal"
+                      class="category-filter"
+                      value="herbal"
+                    />
+                    <label for="herbal">Herbal Medicines</label>
+                  </li>
+                  <li>
+                    <input
+                      type="checkbox"
+                      id="supplements"
+                      class="category-filter"
+                      value="supplements"
+                    />
+                    <label for="supplements">Supplements</label>
+                  </li>
+                  <li>
+                    <input
+                      type="checkbox"
+                      id="ayurvedic"
+                      class="category-filter"
+                      value="ayurvedic"
+                    />
+                    <label for="ayurvedic">Ayurvedic</label>
+                  </li>
+                  <li>
+                    <input
+                      type="checkbox"
+                      id="homeopathy"
+                      class="category-filter"
+                      value="homeopathy"
+                    />
+                    <label for="homeopathy">Homeopathy</label>
+                  </li>
+                  <li>
+                    <input
+                      type="checkbox"
+                      id="personal-care"
+                      class="category-filter"
+                      value="personal-care"
+                    />
+                    <label for="personal-care">Personal Care</label>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="filter-group">
+                <h3>Health Concerns</h3>
+                <ul class="filter-list">
+                  <li>
+                    <input
+                      type="checkbox"
+                      id="immunity"
+                      class="concern-filter"
+                      value="immunity"
+                    />
+                    <label for="immunity">Immunity</label>
+                  </li>
+                  <li>
+                    <input
+                      type="checkbox"
+                      id="digestion"
+                      class="concern-filter"
+                      value="digestion"
+                    />
+                    <label for="digestion">Digestion</label>
+                  </li>
+                  <li>
+                    <input
+                      type="checkbox"
+                      id="stress"
+                      class="concern-filter"
+                      value="stress"
+                    />
+                    <label for="stress">Stress & Sleep</label>
+                  </li>
+                  <li>
+                    <input
+                      type="checkbox"
+                      id="pain"
+                      class="concern-filter"
+                      value="pain"
+                    />
+                    <label for="pain">Pain Relief</label>
+                  </li>
+                  <li>
+                    <input
+                      type="checkbox"
+                      id="skin"
+                      class="concern-filter"
+                      value="skin"
+                    />
+                    <label for="skin">Skin & Hair</label>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="filter-group">
+                <h3>Price Range</h3>
+                <div class="price-slider">
+                  <input
+                    type="range"
+                    id="price-range"
+                    min="0"
+                    max="100"
+                    value="100"
+                  />
+                  <div class="price-values">
+                    <span>$0</span>
+                    <span id="price-value">$100</span>
+                  </div>
+                </div>
+              </div>
+
+              <button class="clear-filters-btn">Clear All Filters</button>
+            </div>
+
+            <!-- Products Grid -->
+            <div class="products-container">
+              <div class="products-header">
+                <div class="results-count">
+                  Showing <span id="product-count">12</span> products
+                </div>
+                <div class="sort-options">
+                  <label for="sort-select">Sort by:</label>
+                  <select id="sort-select">
+                    <option value="popularity">Popularity</option>
+                    <option value="price-low">Price: Low to High</option>
+                    <option value="price-high">Price: High to Low</option>
+                    <option value="newest">Newest First</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="products-grid" id="products-grid">
+                <!-- Product cards will be inserted here by JavaScript -->
+              </div>
+
+              <div id="med-pagination" class="pagination">
+                <!-- <button class="page-btn active">1</button>
+                            <button class="page-btn">2</button>
+                            <button class="page-btn">3</button>
+                            <button class="page-btn next">Next <i class="fas fa-chevron-right"></i></button> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="featured-section">
+        <div class="container">
+          <h2>Featured Collections</h2>
+          <div class="featured-collections">
+            <div class="collection-card">
+              <div class="collection-image"></div>
+              <h3>Immunity Boosters</h3>
+              <p>Natural products to strengthen your immune system</p>
+              <a href="#" class="btn-secondary">View Collection</a>
+            </div>
+            <div class="collection-card">
+              <div class="collection-image"></div>
+              <h3>Stress Relief</h3>
+              <p>Herbal remedies for stress and better sleep</p>
+              <a href="#" class="btn-secondary">View Collection</a>
+            </div>
+            <div class="collection-card">
+              <div class="collection-image"></div>
+              <h3>Seasonal Herbs</h3>
+              <p>Special herbs formulated for the current season</p>
+              <a href="#" class="btn-secondary">View Collection</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 Herbal-Heal. All rights reserved.</p>
+      <nav class="footer-nav">
+        <a href="/privacy-policy.html">Privacy Policy</a> |
+        <a href="/terms.html">Terms of Service</a> |
+        <a href="/contact.html">Contact Us</a>
+      </nav>
+    </footer>
+
+    <script src="buymedicine.js"></script>
+  </body>
+</html>
