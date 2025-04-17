@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Herbal-Heal Pharmacy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #3a7859;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background-color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #3a7859;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .hero {
+            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.3)), url("/api/placeholder/1200/400");
+            background-size: cover;
+            background-position: center;
+            height: 300px;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+        }
+
+        .about-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .about-content h2 {
+            color: #3a7859;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+        }
+
+        .about-content p {
+            margin-bottom: 1rem;
+        }
+
+        .about-image {
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .values {
+            margin-bottom: 3rem;
+        }
+
+        .values h2 {
+            color: #3a7859;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+            text-align: center;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .value-card {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .value-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .value-icon {
+            width: 60px;
+            height: 60px;
+            background-color: #e6f2ec;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: #3a7859;
+            font-size: 1.5rem;
+        }
+
+        .value-card h3 {
+            color: #3a7859;
+            margin-bottom: 1rem;
+        }
+
+        .team {
+            margin-bottom: 3rem;
+        }
+
+        .team h2 {
+            color: #3a7859;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+            text-align: center;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+
+        .team-member {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+
+        .member-image {
+            height: 200px;
+            background-color: #e6f2ec;
+        }
+
+        .member-info {
+            padding: 1.5rem;
+        }
+
+        .member-info h3 {
+            color: #3a7859;
+            margin-bottom: 0.5rem;
+        }
+
+        .member-info p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .cta {
+            background-color: #3a7859;
+            padding: 3rem;
+            border-radius: 8px;
+            text-align: center;
+            color: white;
+        }
+
+        .cta h2 {
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+        }
+
+        .cta p {
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background-color: white;
+            color: #3a7859;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+
+        .cta-btn:hover {
+            background-color: #e6f2ec;
+            transform: translateY(-3px);
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 3rem 2rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-about p {
+            margin-bottom: 1rem;
+            color: #ccc;
+        }
+
+        .footer-links h4, .footer-contact h4, .footer-newsletter h4 {
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .footer-contact p {
+            margin-bottom: 0.5rem;
+            color: #ccc;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            background-color: #444;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s;
+        }
+
+        .social-icon:hover {
+            background-color: #3a7859;
+        }
+
+        .copyright {
+            max-width: 1200px;
+            margin: 2rem auto 0;
+            padding-top: 2rem;
+            border-top: 1px solid #444;
+            text-align: center;
+            color: #ccc;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 992px) {
+            .about-section {
+                grid-template-columns: 1fr;
+            }
+            
+            .values-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .team-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <div class="logo-icon">H</div>
+                <span>Herbal-Heal</span>
+            </div>
+            <div class="nav-links">
+                <a href="#">Home</a>
+                <a href="#">Products</a>
+                <a href="#" class="active">About Us</a>
+                <a href="#">Blog</a>
+                <a href="#">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="hero">
+            <h1>About Herbal-Heal</h1>
+            <p>Your trusted partner in natural wellness since 2015. We're committed to providing high-quality herbal remedies and holistic healthcare solutions.</p>
+        </div>
+
+        <div class="about-section">
+            <div class="about-content">
+                <h2>Our Story</h2>
+                <p>Founded in 2015, Herbal-Heal began with a simple mission: to bring the healing power of nature to modern healthcare. Our founder, Dr. Sarah Johnson, a pharmacist with over 20 years of experience, recognized the growing demand for natural remedies that complement conventional medicine.</p>
+                <p>What started as a small local pharmacy has now grown into a trusted online platform, serving thousands of customers nationwide. Despite our growth, we remain dedicated to our core values of quality, authenticity, and customer care.</p>
+                <p>At Herbal-Heal, we carefully source our herbs and natural products from sustainable and ethical suppliers. Each product undergoes rigorous testing to ensure purity, potency, and safety before reaching our customers.</p>
+            </div>
+            <div class="about-image">
+                <img src="/api/placeholder/600/400" alt="Herbal-Heal team working in laboratory">
+            </div>
+        </div>
+
+        <div class="values">
+            <h2>Our Core Values</h2>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">✓</div>
+                    <h3>Quality</h3>
+                    <p>We never compromise on the quality of our products. Every herb, supplement, and natural remedy meets the highest standards of purity and efficacy.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">♥</div>
+                    <h3>Holistic Approach</h3>
+                    <p>We believe in treating the whole person, not just symptoms. Our products and advice support overall wellness and balanced health.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">★</div>
+                    <h3>Customer Care</h3>
+                    <p>Your health journey matters to us. Our team of experts is always ready to provide personalized guidance and support.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="team">
+            <h2>Meet Our Team</h2>
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="member-image"></div>
+                    <div class="member-info">
+                        <h3>Dr. Sarah Johnson</h3>
+                        <p>Founder & Lead Pharmacist</p>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="member-image"></div>
+                    <div class="member-info">
+                        <h3>Dr. Michael Chen</h3>
+                        <p>Herbal Medicine Specialist</p>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="member-image"></div>
+                    <div class="member-info">
+                        <h3>Emma Williams</h3>
+                        <p>Nutritionist</p>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="member-image"></div>
+                    <div class="member-info">
+                        <h3>David Singh</h3>
+                        <p>Quality Control Manager</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="cta">
+            <h2>Experience the Herbal-Heal Difference</h2>
+            <p>Join thousands of satisfied customers who have discovered the benefits of our natural health solutions. Our products are backed by science and tradition.</p>
+            <a href="#" class="cta-btn">Shop Our Products</a>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-about">
+                <div class="footer-logo">
+                    <div class="logo-icon">H</div>
+                    <span>Herbal-Heal</span>
+                </div>
+                <p>Your trusted online pharmacy for herbal remedies and natural wellness products. We're committed to helping you achieve optimal health naturally.</p>
+                <div class="social-icons">
+                    <a href="#" class="social-icon">f</a>
+                    <a href="#" class="social-icon">t</a>
+                    <a href="#" class="social-icon">in</a>
+                    <a href="#" class="social-icon">ig</a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Products</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Categories</h4>
+                <ul>
+                    <li><a href="#">Herbal Supplements</a></li>
+                    <li><a href="#">Essential Oils</a></li>
+                    <li><a href="#">Natural Skincare</a></li>
+                    <li><a href="#">Immunity Boosters</a></li>
+                    <li><a href="#">Sleep & Relaxation</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4>Contact Us</h4>
+                <p>123 Wellness Avenue</p>
+                <p>Natural City, NC 28001</p>
+                <p>Email: info@herbal-heal.com</p>
+                <p>Phone: (555) 123-4567</p>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 Herbal-Heal. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
