@@ -13,69 +13,78 @@
     --radius: 8px;
   }
   
-  /* Reset & Base */
   * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   }
   
   body {
-    background-color: #f8f9fa;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background: #f7f7f7;
     color: var(--text-color);
-    line-height: 1.6;
   }
   
-  /* Header */
-  header {
-    background-color:#116530;
-    padding: 1rem 2rem;
-    box-shadow: var(--shadow);
+  a {
+    text-decoration: none;
+    color: inherit;
   }
   
-  nav {
+  /* Utility Button Class */
+  .btn {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--radius);
+    font-weight: 600;
+    transition: background 0.3s ease;
+  }
+  
+  .btn:hover {
+    background-color: var(--primary-dark);
+  }
+  
+  /* Navbar */
+  .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 1rem 2rem;
+    background-color: #116530;
+    color: white;
+    position: relative;
   }
   
-  .logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    color: #fff;
-    font-size: 1.5rem;
+  .navbar .logo {
+    font-size: 1.8rem;
     font-weight: bold;
   }
   
-  .logo-icon {
-    width: 40px;
-    height: 40px;
-    background-color: #fff;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--primary-dark);
+  .navbar .logo span {
+    color: #f4c430;
   }
   
-  /* Navigation Links */
-  .nav-links {
+  .navbar .nav-links {
+    list-style: none;
     display: flex;
-    gap: 2rem;
-    list-style:none
+    gap: 1rem;
   }
   
-  .nav-links a {
-    color: #fff;
-    text-decoration: none;
+  .navbar .nav-links li a {
+    color: white;
     font-weight: 500;
-    transition: opacity 0.3s;
+    transition: color 0.3s ease;
   }
   
-  .nav-links a:hover {
-    opacity: 0.8;
+  .navbar .nav-links li a:hover {
+    color: #f4c430;
+  }
+  
+  .menu-toggle {
+    display: none;
+    font-size: 1.5rem;
+    cursor: pointer;
   }
   
   /* Main Layout */
@@ -87,7 +96,8 @@
   
   /* Hero Section */
   .hero {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)), url("/api/placeholder/1200/400");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)),
+      url("https://greenleafkratom.com/wp-content/uploads/2018/06/Red-Riau-Kratom-Capsules.jpg");
     background-size: cover;
     background-position: center;
     height: 300px;
@@ -166,7 +176,7 @@
     border-radius: var(--radius);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
     text-align: center;
-    transition: transform 0.3s;
+    transition: transform 0.3s ease;
   }
   
   .value-card:hover {
@@ -382,9 +392,19 @@
       display: none;
     }
   
+    .menu-toggle {
+      display: block;
+    }
+  
     .values-grid,
     .team-grid,
     .footer-content {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .team-grid {
       grid-template-columns: 1fr;
     }
   }
