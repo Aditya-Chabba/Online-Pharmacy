@@ -27,6 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
     cartData.forEach((item, index) => {
       const product = products.find((p) => p.id === item.id);
       if (!product) return;
+      const price = Math.floor(product.originalPrice * (1 - product.discountPercent / 100))
 
       const cartItem = document.createElement("div");
       cartItem.className = "cart-item";
@@ -34,14 +35,14 @@ document.addEventListener("DOMContentLoaded", () => {
         <img src="${product.image}" alt="${product.name}" />
         <div class="item-details">
           <h3>${product.name}</h3>
-          <p>Price: ₹${product.price}</p>
+          <p>Price: ₹${price}</p>
           <div class="quantity-control">
             <button class="minus-btn">-</button>
             <input type="number" value="${item.quantity}" min="1" />
             <button class="plus-btn">+</button>
           </div>
         </div>
-        <div class="item-total">₹${(product.price * item.quantity).toFixed(2)}</div>
+        <div class="item-total">₹${(price * item.quantity).toFixed(2)}</div>
         <button class="delete-btn">Delete</button>
       `;
 
@@ -57,7 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const updateItemTotal = () => {
         const qty = parseInt(quantityInput.value);
         cartData[index].quantity = qty;
-        itemTotal.textContent = `₹${(qty * product.price).toFixed(2)}`;
+        itemTotal.textContent = `₹${(qty * price).toFixed(2)}`;
         updateCartSummary();
       };
 
@@ -98,9 +99,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     cartData.forEach((item) => {
       const product = products.find((p) => p.id === item.id);
+      const price = Math.floor(product.originalPrice * (1 - product.discountPercent / 100))
       if (product) {
         totalItems += item.quantity;
-        totalAmount += item.quantity * product.price;
+        totalAmount += item.quantity * price;
       }
     });
 
