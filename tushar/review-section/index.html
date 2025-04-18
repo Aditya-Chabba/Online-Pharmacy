@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Reviews</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Product Reviews</h1>
+            <p class="product-name">Premium Wireless Headphones</p>
+            <div class="product-overview">
+                <div class="product-image">
+                    <img src="assets/images/headphones.jpg" alt="Premium Wireless Headphones" onerror="this.src='https://via.placeholder.com/300x300?text=Headphones'">
+                </div>
+                <div class="product-summary">
+                    <div class="rating-summary">
+                        <div class="average-rating">
+                            <span class="big-rating">4.7</span>
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <span class="review-count">Based on 128 reviews</span>
+                        </div>
+                        <div class="rating-bars">
+                            <div class="rating-bar-item">
+                                <span class="rating-label">5 Stars</span>
+                                <div class="rating-bar">
+                                    <div class="rating-fill" style="width: 75%"></div>
+                                </div>
+                                <span class="rating-percent">75%</span>
+                            </div>
+                            <div class="rating-bar-item">
+                                <span class="rating-label">4 Stars</span>
+                                <div class="rating-bar">
+                                    <div class="rating-fill" style="width: 20%"></div>
+                                </div>
+                                <span class="rating-percent">20%</span>
+                            </div>
+                            <div class="rating-bar-item">
+                                <span class="rating-label">3 Stars</span>
+                                <div class="rating-bar">
+                                    <div class="rating-fill" style="width: 3%"></div>
+                                </div>
+                                <span class="rating-percent">3%</span>
+                            </div>
+                            <div class="rating-bar-item">
+                                <span class="rating-label">2 Stars</span>
+                                <div class="rating-bar">
+                                    <div class="rating-fill" style="width: 1%"></div>
+                                </div>
+                                <span class="rating-percent">1%</span>
+                            </div>
+                            <div class="rating-bar-item">
+                                <span class="rating-label">1 Star</span>
+                                <div class="rating-bar">
+                                    <div class="rating-fill" style="width: 1%"></div>
+                                </div>
+                                <span class="rating-percent">1%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn primary" id="write-review-btn">
+                        <i class="fas fa-pen"></i> Write a Review
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="review-filters">
+            <div class="filter-group">
+                <label for="sort-by">Sort By:</label>
+                <select id="sort-by">
+                    <option value="newest">Newest First</option>
+                    <option value="highest">Highest Rated</option>
+                    <option value="lowest">Lowest Rated</option>
+                    <option value="helpful">Most Helpful</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label for="filter-rating">Filter By Rating:</label>
+                <select id="filter-rating">
+                    <option value="all">All Ratings</option>
+                    <option value="5">5 Stars</option>
+                    <option value="4">4 Stars</option>
+                    <option value="3">3 Stars</option>
+                    <option value="2">2 Stars</option>
+                    <option value="1">1 Star</option>
+                </select>
+            </div>
+            <div class="filter-group search">
+                <input type="text" id="search-reviews" placeholder="Search reviews...">
+                <button id="search-btn"><i class="fas fa-search"></i></button>
+            </div>
+        </div>
+        
+        <div class="reviews-container">
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="reviewer-info">
+                        <div class="avatar">RS</div>
+                        <div class="reviewer-details">
+                            <h3>Rahul Singh</h3>
+                            <span class="verified-badge"><i class="fas fa-check-circle"></i> Verified Purchase</span>
+                        </div>
+                    </div>
+                    <div class="review-rating">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <span class="review-date">April 10, 2025</span>
+                    </div>
+                </div>
+                <h4 class="review-title">Amazing sound quality and comfort!</h4>
+                <p class="review-content">
+                    I've been using these headphones for about a week now and I'm extremely impressed with the sound quality. The bass is deep without being overwhelming, and the noise cancellation works perfectly in noisy environments. Battery life is excellent - I've only had to charge them once since I got them.
+                </p>
+                <div class="review-photos">
+                    <div class="review-photo">
+                        <img src="assets/images/review1.jpg" alt="Review photo" onerror="this.src='https://via.placeholder.com/100x100?text=Photo'">
+                    </div>
+                    <div class="review-photo">
+                        <img src="assets/images/review2.jpg" alt="Review photo" onerror="this.src='https://via.placeholder.com/100x100?text=Photo'">
+                    </div>
+                </div>
+                <div class="review-footer">
+                    <div class="helpful-section">
+                        <span>Was this review helpful?</span>
+                        <button class="helpful-btn"><i class="fas fa-thumbs-up"></i> Yes (24)</button>
+                        <button class="helpful-btn"><i class="fas fa-thumbs-down"></i> No (2)</button>
+                    </div>
+                    <button class="report-btn"><i class="fas fa-flag"></i> Report</button>
+                </div>
+            </div>
+            
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="reviewer-info">
+                        <div class="avatar">PK</div>
+                        <div class="reviewer-details">
+                            <h3>Priya Kapoor</h3>
+                            <span class="verified-badge"><i class="fas fa-check-circle"></i> Verified Purchase</span>
+                        </div>
+                    </div>
+                    <div class="review-rating">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                        <span class="review-date">April 5, 2025</span>
+                    </div>
+                </div>
+                <h4 class="review-title">Great headphones but battery drains quickly</h4>
+                <p class="review-content">
+                    The sound quality is excellent and they're very comfortable to wear for long periods. My only complaint is that the battery doesn't last as long as advertised. I'm getting about 15 hours instead of the promised 20 hours. Still, I'm happy with my purchase overall.
+                </p>
+                <div class="review-footer">
+                    <div class="helpful-section">
+                        <span>Was this review helpful?</span>
+                        <button class="helpful-btn"><i class="fas fa-thumbs-up"></i> Yes (16)</button>
+                        <button class="helpful-btn"><i class="fas fa-thumbs-down"></i> No (3)</button>
+                    </div>
+                    <button class="report-btn"><i class="fas fa-flag"></i> Report</button>
+                </div>
+            </div>
+            
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="reviewer-info">
+                        <div class="avatar">AM</div>
+                        <div class="reviewer-details">
+                            <h3>Arjun Mehta</h3>
+                            <span class="verified-badge"><i class="fas fa-check-circle"></i> Verified Purchase</span>
+                        </div>
+                    </div>
+                    <div class="review-rating">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <span class="review-date">March 28, 2025</span>
+                    </div>
+                </div>
+                <h4 class="review-title">Perfect for work and travel</h4>
+                <p class="review-content">
+                    I use these headphones daily for work calls and listening to music while traveling. The noise cancellation is fantastic for blocking out background noise during calls. The build quality is excellent, and they fold up nicely for travel. Highly recommended!
+                </p>
+                <div class="review-footer">
+                    <div class="helpful-section">
+                        <span>Was this review helpful?</span>
+                        <button class="helpful-btn"><i class="fas fa-thumbs-up"></i> Yes (32)</button>
+                        <button class="helpful-btn"><i class="fas fa-thumbs-down"></i> No (1)</button>
+                    </div>
+                    <button class="report-btn"><i class="fas fa-flag"></i> Report</button>
+                </div>
+            </div>
+            
+            <div class="load-more">
+                <button class="btn secondary" id="load-more-btn">Load More Reviews</button>
+            </div>
+        </div>
+        
+        <div class="review-form-container" id="review-form">
+            <div class="review-form-card">
+                <div class="form-header">
+                    <h2>Write Your Review</h2>
+                    <button class="close-btn" id="close-review-form"><i class="fas fa-times"></i></button>
+                </div>
+                <form id="new-review-form">
+                    <div class="form-group">
+                        <label>Overall Rating</label>
+                        <div class="rating-input">
+                            <i class="far fa-star" data-rating="1"></i>
+                            <i class="far fa-star" data-rating="2"></i>
+                            <i class="far fa-star" data-rating="3"></i>
+                            <i class="far fa-star" data-rating="4"></i>
+                            <i class="far fa-star" data-rating="5"></i>
+                        </div>
+                        <input type="hidden" id="rating-value" name="rating" value="0">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="review-title">Review Title</label>
+                        <input type="text" id="review-title" name="title" placeholder="Summarize your experience" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="review-content">Your Review</label>
+                        <textarea id="review-content" name="content" rows="5" placeholder="What did you like or dislike about this product?" required></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Add Photos (optional)</label>
+                        <div class="photo-upload">
+                            <label for="photo-input" class="upload-btn">
+                                <i class="fas fa-camera"></i> Upload Photos
+                            </label>
+                            <input type="file" id="photo-input" multiple accept="image/*" style="display: none;">
+                            <div class="photo-preview" id="photo-preview"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="reviewer-name">Your Name</label>
+                        <input type="text" id="reviewer-name" name="name" placeholder="Enter your name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="reviewer-email">Your Email</label>
+                        <input type="email" id="reviewer-email" name="email" placeholder="Enter your email (will not be published)" required>
+                    </div>
+                    
+                    <div class="form-group checkbox-group">
+                        <input type="checkbox" id="terms-agree" name="terms" required>
+                        <label for="terms-agree">I agree to the review guidelines and terms of service</label>
+                    </div>
+                    
+                    <button type="submit" class="btn primary submit-btn">
+                        <i class="fas fa-paper-plane"></i> Submit Review
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2025 Premium Wireless Headphones. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Review Guidelines</a>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="js/script.js"></script>
+</body>
+</html>

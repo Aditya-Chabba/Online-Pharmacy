@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Tracking System</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Order Tracking</h1>
+            <div class="order-info">
+                <div class="info-item">
+                    <span class="label">Order ID:</span>
+                    <span class="value">#ORD-2025-4872</span>
+                </div>
+                <div class="info-item">
+                    <span class="label">Order Date:</span>
+                    <span class="value">April 15, 2025</span>
+                </div>
+                <div class="info-item">
+                    <span class="label">Expected Delivery:</span>
+                    <span class="value">April 22, 2025</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="tracking-container">
+            <div class="tracking-bar">
+                <div class="progress-bar">
+                    <div class="progress" id="progress"></div>
+                </div>
+                
+                <div class="tracking-steps">
+                    <div class="step active" data-step="1">
+                        <div class="step-icon">
+                            <i class="fas fa-clipboard-check"></i>
+                        </div>
+                        <div class="step-label">Order Placed</div>
+                        <div class="step-date">Apr 15</div>
+                    </div>
+                    
+                    <div class="step active" data-step="2">
+                        <div class="step-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <div class="step-label">Order Confirmed</div>
+                        <div class="step-date">Apr 16</div>
+                    </div>
+                    
+                    <div class="step" data-step="3">
+                        <div class="step-icon">
+                            <i class="fas fa-box"></i>
+                        </div>
+                        <div class="step-label">Shipped</div>
+                        <div class="step-date">Apr 18</div>
+                    </div>
+                    
+                    <div class="step" data-step="4">
+                        <div class="step-icon">
+                            <i class="fas fa-truck"></i>
+                        </div>
+                        <div class="step-label">Out for Delivery</div>
+                        <div class="step-date">Apr 21</div>
+                    </div>
+                    
+                    <div class="step" data-step="5">
+                        <div class="step-icon">
+                            <i class="fas fa-home"></i>
+                        </div>
+                        <div class="step-label">Delivered</div>
+                        <div class="step-date">Apr 22</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="order-details">
+            <h2>Order Details</h2>
+            <div class="product-list">
+                <div class="product-item">
+                    <div class="product-image"></div>
+                    <div class="product-info">
+                        <h3>Premium Wireless Headphones</h3>
+                        <p>Quantity: 1</p>
+                        <p>Price: ₹4,999</p>
+                    </div>
+                </div>
+                <div class="product-item">
+                    <div class="product-image"></div>
+                    <div class="product-info">
+                        <h3>Smartphone Case</h3>
+                        <p>Quantity: 2</p>
+                        <p>Price: ₹599 each</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="order-summary">
+                <div class="summary-row">
+                    <span>Subtotal</span>
+                    <span>₹6,197</span>
+                </div>
+                <div class="summary-row">
+                    <span>Shipping</span>
+                    <span>₹100</span>
+                </div>
+                <div class="summary-row">
+                    <span>Tax</span>
+                    <span>₹310</span>
+                </div>
+                <div class="summary-row total">
+                    <span>Total</span>
+                    <span>₹6,607</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="actions">
+            <a href="contact-us.html" class="btn secondary"><i class="fas fa-envelope"></i> Contact Us</a>
+            <button class="btn primary" id="track-another">Track Another Order</button>
+            <button class="btn secondary" id="contact-support">Contact Support</button>
+        </div>
+        
+        <div class="demo-controls">
+            <h3>Demo Controls</h3>
+            <p>Update order status:</p>
+            <div class="status-buttons">
+                <button class="status-btn" data-status="1">Step 1</button>
+                <button class="status-btn" data-status="2">Step 2</button>
+                <button class="status-btn" data-status="3">Step 3</button>
+                <button class="status-btn" data-status="4">Step 4</button>
+                <button class="status-btn" data-status="5">Step 5</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/script.js"></script>
+</body>
+</html>
+
