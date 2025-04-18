@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="Your trusted online pharmacy – Herbal-Heal" />
+    <meta name="author" content="Herbal-Heal" />
+    <meta name="keywords" content="online pharmacy, health products, Herbal Heal" />
+    <title>Medicine Details - Herbal-Heal</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="home.css" />
+    <link rel="stylesheet" href="medicineDetail.css" />
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">Herbal<span>Heal</span></div>
+            <ul class="nav-links">
+                <li><a href="/home.html">Home</a></li>
+                <li><a href="/buymedicine.html" class="active">Buy Medicines</a></li>
+                <li><a href="/PrescriptionUpload.html">Health Records</a></li>
+                <li><a href="/MyOrders.html">My Order</a></li>
+                <li><a href="/Aboutus.html">About Us</a></li>
+                <li><a href="/ContactUs.html">Contact</a></li>
+                <li><a href="/Cart.html"><i class="fas fa-shopping-cart"></i> <span class="cart-count">0</span></a></li>
+            </ul>
+            <div class="mobile-menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <div class="breadcrumb">
+            <a href="/home.html">Home</a> / 
+            <a href="/buymedicine.html">Buy Medicines</a> / 
+            <span id="medicine-name">Medicine Details</span>
+        </div>
+
+        <section class="medicine-detail-container">
+            <div class="medicine-image">
+                <img id="medicine-img" src="" alt="Medicine Image">
+            </div>
+            <div class="medicine-info">
+                <h1 id="medicine-title"></h1>
+                <div class="medicine-rating">
+                    <span id="rating-stars"></span>
+                    <span id="rating-value"></span> 
+                    <span class="reviews">(142 reviews)</span>
+                </div>
+                <div class="medicine-category">
+                    Category: <span id="medicine-category"></span>
+                </div>
+                <div class="medicine-concerns">
+                    Health Concerns: <span id="medicine-concerns"></span>
+                </div>
+                <div class="medicine-price">
+                    <span class="current-price" id="discount-price"></span>
+                    <span class="original-price" id="original-price"></span>
+                    <span class="discount-tag" id="discount-percent"></span>
+                </div>
+                <div class="medicine-stock">
+                    <i class="fas fa-check-circle"></i> In Stock
+                </div>
+                <div class="quantity-selector">
+                    <label for="quantity">Quantity:</label>
+                    <div class="quantity-buttons">
+                        <button id="decrease-quantity">-</button>
+                        <input type="number" id="quantity" value="1" min="1" max="10">
+                        <button id="increase-quantity">+</button>
+                    </div>
+                </div>
+                <div class="action-buttons">
+                    <button class="btn-add-to-cart">
+                        <i class="fas fa-shopping-cart"></i> Add to Cart
+                    </button>
+                    <button class="btn-buy-now">
+                        Buy Now
+                    </button>
+                </div>
+                <div class="delivery-info">
+                    <div class="delivery-option">
+                        <i class="fas fa-truck"></i>
+                        <div>
+                            <span>Free Delivery</span>
+                            <p>On orders above ₹499</p>
+                        </div>
+                    </div>
+                    <div class="delivery-option">
+                        <i class="fas fa-undo"></i>
+                        <div>
+                            <span>Easy Returns</span>
+                            <p>15 days return policy</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="product-description">
+            <div class="tab-header">
+                <button class="tab-button active" data-tab="description">Description</button>
+                <button class="tab-button" data-tab="how-to-use">How to Use</button>
+                <button class="tab-button" data-tab="benefits">Benefits</button>
+                <button class="tab-button" data-tab="reviews">Reviews</button>
+            </div>
+            <div class="tab-content">
+                <div class="tab-pane active" id="description">
+                    <h3>About Ashwagandha Capsules</h3>
+                    <p>Ashwagandha (Withania somnifera) is a powerful adaptogenic herb that has been used for over 3,000 years in Ayurvedic medicine. These premium-quality capsules contain 100% pure Ashwagandha root extract, carefully processed to preserve all its natural benefits.</p>
+                    <p>Our Ashwagandha capsules help reduce stress and anxiety, boost immunity, improve cognitive function, and enhance energy levels naturally. Each capsule contains 500mg of Ashwagandha extract standardized to contain 5% withanolides.</p>
+                    <h4>Key Features:</h4>
+                    <ul>
+                        <li>100% Natural and Organic</li>
+                        <li>No artificial additives or preservatives</li>
+                        <li>Vegan-friendly capsules</li>
+                        <li>Lab-tested for purity and potency</li>
+                        <li>60 capsules per bottle (30-day supply)</li>
+                    </ul>
+                </div>
+                <div class="tab-pane" id="how-to-use">
+                    <h3>How to Use</h3>
+                    <p>Take 2 capsules daily with water, preferably after meals or as directed by your healthcare professional. For best results, use consistently for at least 4-6 weeks.</p>
+                    <h4>Recommended Usage:</h4>
+                    <ul>
+                        <li>For stress relief: Take 1 capsule in the morning and 1 in the evening</li>
+                        <li>For sleep improvement: Take 2 capsules 1 hour before bedtime</li>
+                        <li>For general wellness: Take 2 capsules any time during the day</li>
+                    </ul>
+                    <p>Store in a cool, dry place away from direct sunlight.</p>
+                </div>
+                <div class="tab-pane" id="benefits">
+                    <h3>Benefits</h3>
+                    <ul class="benefits-list">
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <h4>Reduces Stress and Anxiety</h4>
+                                <p>Ashwagandha is proven to help lower cortisol levels, which helps reduce stress and anxiety symptoms.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <h4>Boosts Immunity</h4>
+                                <p>Enhances the body's defense against illness by increasing immunoglobulin production.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <h4>Improves Cognitive Function</h4>
+                                <p>Helps enhance memory, focus, and overall brain function.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <h4>Increases Energy and Vitality</h4>
+                                <p>Reduces fatigue and improves physical performance and endurance.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="tab-pane" id="reviews">
+                    <h3>Customer Reviews</h3>
+                    <div class="review-summary">
+                        <div class="average-rating">
+                            <span class="big-rating">4.7</span>
+                            <div class="rating-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <span>Based on 142 reviews</span>
+                        </div>
+                        <div class="rating-bars">
+                            <div class="rating-bar">
+                                <span>5 stars</span>
+                                <div class="bar">
+                                    <div class="fill" style="width: 75%"></div>
+                                </div>
+                                <span>75%</span>
+                            </div>
+                            <div class="rating-bar">
+                                <span>4 stars</span>
+                                <div class="bar">
+                                    <div class="fill" style="width: 20%"></div>
+                                </div>
+                                <span>20%</span>
+                            </div>
+                            <div class="rating-bar">
+                                <span>3 stars</span>
+                                <div class="bar">
+                                    <div class="fill" style="width: 5%"></div>
+                                </div>
+                                <span>5%</span>
+                            </div>
+                            <div class="rating-bar">
+                                <span>2 stars</span>
+                                <div class="bar">
+                                    <div class="fill" style="width: 0%"></div>
+                                </div>
+                                <span>0%</span>
+                            </div>
+                            <div class="rating-bar">
+                                <span>1 star</span>
+                                <div class="bar">
+                                    <div class="fill" style="width: 0%"></div>
+                                </div>
+                                <span>0%</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="customer-reviews">
+                        <div class="review">
+                            <div class="review-header">
+                                <div class="reviewer-info">
+                                    <img src="/api/placeholder/50/50" alt="User" class="reviewer-avatar">
+                                    <div>
+                                        <h4>Priya S.</h4>
+                                        <div class="review-rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <span class="review-date">2 months ago</span>
+                            </div>
+                            <p class="review-text">I've been taking these Ashwagandha capsules for about 6 weeks now and I can really feel the difference in my stress levels. I feel much calmer during my workday and I'm sleeping better at night. Highly recommend!</p>
+                        </div>
+                        
+                        <div class="review">
+                            <div class="review-header">
+                                <div class="reviewer-info">
+                                    <img src="/api/placeholder/50/50" alt="User" class="reviewer-avatar">
+                                    <div>
+                                        <h4>Rahul M.</h4>
+                                        <div class="review-rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="far fa-star"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <span class="review-date">1 month ago</span>
+                            </div>
+                            <p class="review-text">Great product for overall wellness. I've noticed improved energy levels throughout the day. The only reason I'm giving 4 stars instead of 5 is because the capsules are a bit large and sometimes difficult to swallow.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="related-products">
+            <h2>Related Products</h2>
+            <div class="product-grid" id="related-products-container">
+                <!-- Related products will be populated here -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-about">
+                <div class="footer-logo">
+                    <span>Herbal-Heal</span>
+                </div>
+                <p>Your trusted online pharmacy for herbal remedies and natural wellness products. We're committed to helping you achieve optimal health naturally.</p>
+                <div class="social-icons">
+                    <a href="#" class="social-icon">f</a>
+                    <a href="#" class="social-icon">t</a>
+                    <a href="#" class="social-icon">in</a>
+                    <a href="#" class="social-icon">ig</a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Products</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Categories</h4>
+                <ul>
+                    <li><a href="#">Herbal Supplements</a></li>
+                    <li><a href="#">Essential Oils</a></li>
+                    <li><a href="#">Natural Skincare</a></li>
+                    <li><a href="#">Immunity Boosters</a></li>
+                    <li><a href="#">Sleep & Relaxation</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4>Contact Us</h4>
+                <p>123 Wellness Avenue</p>
+                <p>Natural City, NC 28001</p>
+                <p>Email: info@herbal-heal.com</p>
+                <p>Phone: (555) 123-4567</p>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 Herbal-Heal. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script type="module" src="medicineDetail.js"></script>
+</body>
+</html>
