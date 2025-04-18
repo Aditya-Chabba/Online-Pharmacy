@@ -16,7 +16,8 @@ document.addEventListener("DOMContentLoaded", function () {
       category: "herbal",
       concerns: ["stress", "immunity"],
       price: 25,
-      image: "https://himalayawellness.in/cdn/shop/products/Ashvagandha-2.jpg?v=1676957290",
+      image:
+        "https://himalayawellness.in/cdn/shop/products/Ashvagandha-2.jpg?v=1676957290",
       rating: 4.7,
     },
     {
@@ -25,7 +26,8 @@ document.addEventListener("DOMContentLoaded", function () {
       category: "ayurvedic",
       concerns: ["digestion"],
       price: 18,
-      image: "https://king-online.co.za/files/001120/gallery/00/02/25/00022512_00010661.png",
+      image:
+        "https://king-online.co.za/files/001120/gallery/00/02/25/00022512_00010661.png",
       rating: 4.3,
     },
     {
@@ -70,7 +72,8 @@ document.addEventListener("DOMContentLoaded", function () {
       category: "herbal",
       concerns: ["sleep", "anxiety"],
       price: 19,
-      image: "https://himalayawellness.co.za/cdn/shop/products/Valerian.png?v=1606283240&width=1080",
+      image:
+        "https://himalayawellness.co.za/cdn/shop/products/Valerian.png?v=1606283240&width=1080",
       rating: 4.2,
     },
     {
@@ -88,7 +91,8 @@ document.addEventListener("DOMContentLoaded", function () {
       category: "supplements",
       concerns: ["heart", "brain"],
       price: 32,
-      image: "https://www.getsupp.com/static/media/__resized/images/products/KU8K8F3CCX3006ORJ-6db76ac5-ef20-4f17-bed7-f147acaa175f-thumbnail_webp-512x512-70.webp",
+      image:
+        "https://www.getsupp.com/static/media/__resized/images/products/KU8K8F3CCX3006ORJ-6db76ac5-ef20-4f17-bed7-f147acaa175f-thumbnail_webp-512x512-70.webp",
       rating: 4.6,
     },
     {
@@ -97,7 +101,8 @@ document.addEventListener("DOMContentLoaded", function () {
       category: "supplements",
       concerns: ["detox", "immunity"],
       price: 24,
-      image: "https://meds.myupchar.com/153431/health-veda-organics-spirulina-capsules-veg-capsules-for-good-health-120-0.webp",
+      image:
+        "https://meds.myupchar.com/153431/health-veda-organics-spirulina-capsules-veg-capsules-for-good-health-120-0.webp",
       rating: 4.3,
     },
     {
@@ -106,7 +111,8 @@ document.addEventListener("DOMContentLoaded", function () {
       category: "ayurvedic",
       concerns: ["memory", "focus"],
       price: 21,
-      image: "https://himalayawellness.my/cdn/shop/products/brahmi.jpg?v=1652784134",
+      image:
+        "https://himalayawellness.my/cdn/shop/products/brahmi.jpg?v=1652784134",
       rating: 4.4,
     },
     {
@@ -115,7 +121,8 @@ document.addEventListener("DOMContentLoaded", function () {
       category: "herbal",
       concerns: ["relaxation", "sleep"],
       price: 15,
-      image: "https://img.tatacliq.com/images/i8/437Wx649H/MP000000008742207_437Wx649H_202206300458233.jpeg",
+      image:
+        "https://img.tatacliq.com/images/i8/437Wx649H/MP000000008742207_437Wx649H_202206300458233.jpeg",
       rating: 4.9,
     },
     {
@@ -124,7 +131,8 @@ document.addEventListener("DOMContentLoaded", function () {
       category: "supplements",
       concerns: ["bones", "immunity"],
       price: 18,
-      image: "https://cdn01.pharmeasy.in/dam/products_otc/Q06828/vlados-himalayan-organics-vitamin-d3-with-k2-as-mk7-supplement-120-veg-tablets-2-1741330796.jpg?dim=400x0&dpr=1&q=100",
+      image:
+        "https://cdn01.pharmeasy.in/dam/products_otc/Q06828/vlados-himalayan-organics-vitamin-d3-with-k2-as-mk7-supplement-120-veg-tablets-2-1741330796.jpg?dim=400x0&dpr=1&q=100",
       rating: 4.7,
     },
     {
@@ -133,7 +141,8 @@ document.addEventListener("DOMContentLoaded", function () {
       category: "herbal",
       concerns: ["nutrition", "energy"],
       price: 20,
-      image: "https://dr9wvh6oz7mzp.cloudfront.net/i/c50f7b6fa87890d4c039fc7c75d20058_ra,w806,h806_pa,w806,h806.jpg",
+      image:
+        "https://dr9wvh6oz7mzp.cloudfront.net/i/c50f7b6fa87890d4c039fc7c75d20058_ra,w806,h806_pa,w806,h806.jpg",
       rating: 4.5,
     },
     {
@@ -142,61 +151,62 @@ document.addEventListener("DOMContentLoaded", function () {
       category: "ayurvedic",
       concerns: ["immunity", "vitality"],
       price: 26,
-      image: "https://www.daburshop.com/cdn/shop/files/1_88963119-1df1-4a16-9ca7-d3a3cca73d3e.png?v=1733210278&width=1445",
+      image:
+        "https://www.daburshop.com/cdn/shop/files/1_88963119-1df1-4a16-9ca7-d3a3cca73d3e.png?v=1733210278&width=1445",
       rating: 4.6,
     },
   ];
 
   const productsPerPage = 6; // You can change this number
   let currentPage = 1;
-  
+
   // Function to display products for the current page
   function renderPaginatedProducts(products, page = 1) {
-      const start = (page - 1) * productsPerPage;
-      const end = start + productsPerPage;
-      const paginatedProducts = products.slice(start, end);
-      
-      renderProducts(paginatedProducts);
-      renderPaginationControls(products.length);
+    const start = (page - 1) * productsPerPage;
+    const end = start + productsPerPage;
+    const paginatedProducts = products.slice(start, end);
+
+    renderProducts(paginatedProducts);
+    renderPaginationControls(products.length);
   }
-  
+
   // Function to render pagination buttons
   function renderPaginationControls(totalItems) {
-      const totalPages = Math.ceil(totalItems / productsPerPage);
-      const paginationContainer = document.getElementById("med-pagination");
-      paginationContainer.innerHTML = null;
-  
-      for (let i = 1; i <= totalPages; i++) {
-          const btn = document.createElement("button");
-          btn.className = `page-btn ${i === currentPage ? "active" : ""}`;
-          btn.textContent = i;
-  
-          btn.addEventListener("click", () => {
-              currentPage = i;
-              renderPaginatedProducts(products, currentPage);
-          });
-  
-          paginationContainer.appendChild(btn);
-      }
-  
-      // Optional Next Button
-      if (currentPage < totalPages) {
-          const nextBtn = document.createElement("button");
-          nextBtn.className = "page-btn next";
-          nextBtn.innerHTML = `Next <i class="fas fa-chevron-right"></i>`;
-          nextBtn.addEventListener("click", () => {
-              currentPage++;
-              renderPaginatedProducts(products, currentPage);
-          });
-          paginationContainer.appendChild(nextBtn);
-      }
-  }  
+    const totalPages = Math.ceil(totalItems / productsPerPage);
+    const paginationContainer = document.getElementById("med-pagination");
+    paginationContainer.innerHTML = null;
 
+    for (let i = 1; i <= totalPages; i++) {
+      const btn = document.createElement("button");
+      btn.className = `page-btn ${i === currentPage ? "active" : ""}`;
+      btn.textContent = i;
+
+      btn.addEventListener("click", () => {
+        currentPage = i;
+        renderPaginatedProducts(products, currentPage);
+      });
+
+      paginationContainer.appendChild(btn);
+    }
+
+    // Optional Next Button
+    if (currentPage < totalPages) {
+      const nextBtn = document.createElement("button");
+      nextBtn.className = "page-btn next";
+      nextBtn.innerHTML = `Next <i class="fas fa-chevron-right"></i>`;
+      nextBtn.addEventListener("click", () => {
+        currentPage++;
+        renderPaginatedProducts(products, currentPage);
+      });
+      paginationContainer.appendChild(nextBtn);
+    }
+  }
 
   // Save and retrieve cart from localStorage
   function getCart() {
     return JSON.parse(localStorage.getItem("cart")) || [];
   }
+  
 
   function saveCart(cart) {
     localStorage.setItem("cart", JSON.stringify(cart));
@@ -208,6 +218,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function renderProducts(productList) {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
     const productsGrid = document.getElementById("products-grid");
     const cart = getCart();
     productsGrid.innerHTML = "";
@@ -216,7 +227,6 @@ document.addEventListener("DOMContentLoaded", function () {
       productsGrid.innerHTML = "<p>No products found.</p>";
       return;
     }
-
     productList.forEach((product) => {
       const productCard = document.createElement("div");
       productCard.classList.add("product-card");
@@ -224,20 +234,26 @@ document.addEventListener("DOMContentLoaded", function () {
       const isInCart = cart.includes(product.id);
 
       productCard.innerHTML = `
-                <div class="product-img">
-                    <img src="${product.image}" alt="${product.name}" />
-                </div>
-                <div class="product-info">
-                    <h3 class="product-title">${product.name}</h3>
-                    <p class="product-price">$${product.price}</p>
-                    <p class="product-rating">${product.rating} ⭐</p>
-                    <button class="add-to-cart-btn ${
-                      isInCart ? "added" : ""
-                    }" data-id="${product.id}">
-                        ${isInCart ? "Remove from Cart" : "Add to Cart"}
-                    </button>
-                </div>
-            `;
+  <div class="product-img">
+    <img src="${product.image}" alt="${product.name}" />
+  </div>
+  <div class="product-info">
+    <h3 class="product-title">${product.name}</h3>
+    <p class="product-price">Currunt Price : ₹${product.price}</p>
+    <p class="product-rating">Rating : ${product.rating} ⭐</p>
+    
+  </div>
+  <div class="product-actions">
+      <button class="add-to-cart-btn ${isInCart ? "added" : ""}" data-id="${
+        product.id
+      }">
+        ${isInCart ? "Remove from Cart" : "Add to Cart"}
+      </button>
+      <button class="compare-btn" data-id="${product.id}">
+        Compare
+      </button>
+  </div>
+`;
 
       productsGrid.appendChild(productCard);
     });
@@ -325,7 +341,7 @@ document.addEventListener("DOMContentLoaded", function () {
       filtered.sort((a, b) => b.id - a.id);
     }
 
-    renderPaginatedProducts(filtered);
+    renderPaginatedProducts(filtered, currentPage);
     updateProductCount(filtered.length);
   }
 
