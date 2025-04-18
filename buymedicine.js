@@ -15,9 +15,10 @@ document.addEventListener("DOMContentLoaded", function () {
       name: "Ashwagandha Capsules",
       category: "herbal",
       concerns: ["stress", "immunity"],
-      price: 25,
-      image:
-        "https://himalayawellness.in/cdn/shop/products/Ashvagandha-2.jpg?v=1676957290",
+      originalPrice: 299,
+      discountPercent: 15,
+      price: 339,
+      image: "https://himalayawellness.in/cdn/shop/products/Ashvagandha-2.jpg?v=1676957290",
       rating: 4.7,
     },
     {
@@ -25,9 +26,10 @@ document.addEventListener("DOMContentLoaded", function () {
       name: "Triphala Powder",
       category: "ayurvedic",
       concerns: ["digestion"],
-      price: 18,
-      image:
-        "https://king-online.co.za/files/001120/gallery/00/02/25/00022512_00010661.png",
+      originalPrice: 199,
+      discountPercent: 10,
+      price: 269,
+      image: "https://king-online.co.za/files/001120/gallery/00/02/25/00022512_00010661.png",
       rating: 4.3,
     },
     {
@@ -35,7 +37,9 @@ document.addEventListener("DOMContentLoaded", function () {
       name: "Multivitamin Supplement",
       category: "supplements",
       concerns: ["immunity"],
-      price: 30,
+      originalPrice: 499,
+      discountPercent: 0,
+      price: 699,
       image: "https://smytten-image.gumlet.io/shop_item/THO0140AB61.jpg",
       rating: 4.5,
     },
@@ -44,7 +48,9 @@ document.addEventListener("DOMContentLoaded", function () {
       name: "Chamomile Tea",
       category: "herbal",
       concerns: ["stress", "sleep"],
-      price: 12,
+      originalPrice: 249,
+      discountPercent: 12,
+      price: 219,
       image: "https://m.media-amazon.com/images/I/618-BI6hasL.jpg",
       rating: 4.6,
     },
@@ -53,7 +59,9 @@ document.addEventListener("DOMContentLoaded", function () {
       name: "Turmeric Curcumin Capsules",
       category: "supplements",
       concerns: ["inflammation", "joints"],
-      price: 22,
+      originalPrice: 349,
+      discountPercent: 0,
+      price: 549,
       image: "https://m.media-amazon.com/images/I/71jdiK6jGbL.jpg",
       rating: 4.8,
     },
@@ -62,7 +70,9 @@ document.addEventListener("DOMContentLoaded", function () {
       name: "Probiotics Complex",
       category: "supplements",
       concerns: ["digestion", "immunity"],
-      price: 35,
+      originalPrice: 449,
+      discountPercent: 15,
+      price: 552,
       image: "https://i.ebayimg.com/images/g/IgAAAOSwp9Fl32n1/s-l1200.png",
       rating: 4.4,
     },
@@ -71,9 +81,10 @@ document.addEventListener("DOMContentLoaded", function () {
       name: "Valerian Root Extract",
       category: "herbal",
       concerns: ["sleep", "anxiety"],
-      price: 19,
-      image:
-        "https://himalayawellness.co.za/cdn/shop/products/Valerian.png?v=1606283240&width=1080",
+      originalPrice: 349,
+      discountPercent: 10,
+      price: 314,
+      image: "https://himalayawellness.co.za/cdn/shop/products/Valerian.png?v=1606283240&width=1080",
       rating: 4.2,
     },
     {
@@ -81,7 +92,9 @@ document.addEventListener("DOMContentLoaded", function () {
       name: "Ginseng Root Powder",
       category: "ayurvedic",
       concerns: ["energy", "focus"],
-      price: 28,
+      originalPrice: 599,
+      discountPercent: 0,
+      price: 599,
       image: "https://m.media-amazon.com/images/I/71D2jFiC1UL.jpg",
       rating: 4.5,
     },
@@ -90,9 +103,10 @@ document.addEventListener("DOMContentLoaded", function () {
       name: "Omega-3 Fish Oil",
       category: "supplements",
       concerns: ["heart", "brain"],
-      price: 32,
-      image:
-        "https://www.getsupp.com/static/media/__resized/images/products/KU8K8F3CCX3006ORJ-6db76ac5-ef20-4f17-bed7-f147acaa175f-thumbnail_webp-512x512-70.webp",
+      originalPrice: 699,
+      discountPercent: 10,
+      price: 629,
+      image: "https://www.getsupp.com/static/media/__resized/images/products/KU8K8F3CCX3006ORJ-6db76ac5-ef20-4f17-bed7-f147acaa175f-thumbnail_webp-512x512-70.webp",
       rating: 4.6,
     },
     {
@@ -100,9 +114,10 @@ document.addEventListener("DOMContentLoaded", function () {
       name: "Spirulina Tablets",
       category: "supplements",
       concerns: ["detox", "immunity"],
-      price: 24,
-      image:
-        "https://meds.myupchar.com/153431/health-veda-organics-spirulina-capsules-veg-capsules-for-good-health-120-0.webp",
+      originalPrice: 449,
+      discountPercent: 0,
+      price: 449,
+      image: "https://meds.myupchar.com/153431/health-veda-organics-spirulina-capsules-veg-capsules-for-good-health-120-0.webp",
       rating: 4.3,
     },
     {
@@ -110,9 +125,10 @@ document.addEventListener("DOMContentLoaded", function () {
       name: "Brahmi Herbal Extract",
       category: "ayurvedic",
       concerns: ["memory", "focus"],
-      price: 21,
-      image:
-        "https://himalayawellness.my/cdn/shop/products/brahmi.jpg?v=1652784134",
+      originalPrice: 399,
+      discountPercent: 10,
+      price: 359,
+      image: "https://himalayawellness.my/cdn/shop/products/brahmi.jpg?v=1652784134",
       rating: 4.4,
     },
     {
@@ -120,9 +136,10 @@ document.addEventListener("DOMContentLoaded", function () {
       name: "Lavender Essential Oil",
       category: "herbal",
       concerns: ["relaxation", "sleep"],
-      price: 15,
-      image:
-        "https://img.tatacliq.com/images/i8/437Wx649H/MP000000008742207_437Wx649H_202206300458233.jpeg",
+      originalPrice: 299,
+      discountPercent: 10,
+      price: 269,
+      image: "https://img.tatacliq.com/images/i8/437Wx649H/MP000000008742207_437Wx649H_202206300458233.jpeg",
       rating: 4.9,
     },
     {
@@ -130,9 +147,10 @@ document.addEventListener("DOMContentLoaded", function () {
       name: "Vitamin D3 Drops",
       category: "supplements",
       concerns: ["bones", "immunity"],
-      price: 18,
-      image:
-        "https://cdn01.pharmeasy.in/dam/products_otc/Q06828/vlados-himalayan-organics-vitamin-d3-with-k2-as-mk7-supplement-120-veg-tablets-2-1741330796.jpg?dim=400x0&dpr=1&q=100",
+      originalPrice: 349,
+      discountPercent: 10,
+      price: 314,
+      image: "https://cdn01.pharmeasy.in/dam/products_otc/Q06828/vlados-himalayan-organics-vitamin-d3-with-k2-as-mk7-supplement-120-veg-tablets-2-1741330796.jpg?dim=400x0&dpr=1&q=100",
       rating: 4.7,
     },
     {
@@ -140,9 +158,10 @@ document.addEventListener("DOMContentLoaded", function () {
       name: "Moringa Leaf Powder",
       category: "herbal",
       concerns: ["nutrition", "energy"],
-      price: 20,
-      image:
-        "https://dr9wvh6oz7mzp.cloudfront.net/i/c50f7b6fa87890d4c039fc7c75d20058_ra,w806,h806_pa,w806,h806.jpg",
+      originalPrice: 399,
+      discountPercent: 0,
+      price: 399,
+      image: "https://dr9wvh6oz7mzp.cloudfront.net/i/c50f7b6fa87890d4c039fc7c75d20058_ra,w806,h806_pa,w806,h806.jpg",
       rating: 4.5,
     },
     {
@@ -150,9 +169,10 @@ document.addEventListener("DOMContentLoaded", function () {
       name: "Chyawanprash",
       category: "ayurvedic",
       concerns: ["immunity", "vitality"],
-      price: 26,
-      image:
-        "https://www.daburshop.com/cdn/shop/files/1_88963119-1df1-4a16-9ca7-d3a3cca73d3e.png?v=1733210278&width=1445",
+      originalPrice: 499,
+      discountPercent: 10,
+      price: 449,
+      image: "https://www.daburshop.com/cdn/shop/files/1_88963119-1df1-4a16-9ca7-d3a3cca73d3e.png?v=1733210278&width=1445",
       rating: 4.6,
     },
   ];
@@ -236,24 +256,28 @@ document.addEventListener("DOMContentLoaded", function () {
       productCard.innerHTML = `
   <div class="product-img">
     <img src="${product.image}" alt="${product.name}" />
+    ${product.discountPercent > 0 ? `<span class="discount-badge">${product.discountPercent}% OFF</span>` : ""}
   </div>
   <div class="product-info">
     <h3 class="product-title">${product.name}</h3>
-    <p class="product-price">Currunt Price : ₹${product.price}</p>
+    <p class="product-price">
+      ${product.discountPercent > 0 
+        ? `<span class="original-price">₹${product.originalPrice}</span> <span class="discounted-price">₹${product.price}</span>` 
+        : `<span class="only-price">₹${product.originalPrice}</span>`
+      }
+    </p>
     <p class="product-rating">Rating : ${product.rating} ⭐</p>
-    
   </div>
   <div class="product-actions">
-      <button class="add-to-cart-btn ${isInCart ? "added" : ""}" data-id="${
-        product.id
-      }">
-        ${isInCart ? "Remove from Cart" : "Add to Cart"}
-      </button>
-      <button class="compare-btn" data-id="${product.id}">
-        Compare
-      </button>
+    <button class="add-to-cart-btn ${isInCart ? "added" : ""}" data-id="${product.id}">
+      ${isInCart ? "Remove from Cart" : "Add to Cart"}
+    </button>
+    <button class="compare-btn" data-id="${product.id}">
+      Compare
+    </button>
   </div>
 `;
+
 
       productsGrid.appendChild(productCard);
     });
