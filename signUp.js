@@ -1,4 +1,4 @@
-const firebaseURL = "https://onlinepharmacy-63387-default-rtdb.asia-southeast1.firebasedatabase.app/users.json"; // Replace with your actual DB URL
+const firebaseURL = "https://onlinepharmacy-63387-default-rtdb.asia-southeast1.firebasedatabase.app/users.json"; 
 
 document.getElementById("signupForm").addEventListener("submit", async function (e) {
     e.preventDefault();
@@ -9,6 +9,25 @@ document.getElementById("signupForm").addEventListener("submit", async function 
     const newUser = { email, password };
 
     try {
+
+        const registeredUsers = await fetch(firebaseURL);
+        const allRegisteredUsers = await registeredUsers.json();
+
+        let isRegistered = false;
+
+        for (let key in allRegisteredUsers) {
+            if (allRegisteredUsers[key].email === email) {
+                isRegistered = true;
+                alert("user is already registered!");
+                break;      
+            }
+        }
+        if(isRegistered===true){
+            window.location.href = "login.html";
+            
+        }
+        
+        
         const response = await fetch(firebaseURL, {
             method: "POST",
             body: JSON.stringify(newUser),
@@ -17,7 +36,7 @@ document.getElementById("signupForm").addEventListener("submit", async function 
 
         if (response.ok) {
             alert("Signup successful!");
-            window.location.href = "login.html"; // Redirect to login page
+            window.location.href = "login.html";
         }
     } catch (error) {
         console.error("Error:", error);

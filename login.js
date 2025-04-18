@@ -17,7 +17,7 @@ document.getElementById("loginForm").addEventListener("submit", async function (
                 isAuthenticated = true;
                 sessionStorage.setItem("user", email); // Store session
                 window.location.href = "dashboard.html"; // Redirect after login
-                break;
+                break;      
             }
         }
 
