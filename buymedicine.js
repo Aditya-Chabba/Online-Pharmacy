@@ -70,7 +70,6 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function renderProducts(productList) {
-    window.scrollTo({ top: 0, behavior: "smooth" });
     const productsGrid = document.getElementById("products-grid");
     const cart = getCart();
     productsGrid.innerHTML = "";
@@ -87,7 +86,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       productCard.innerHTML = `
   <div class="product-img">
-    <div class="medicine-detail" medicineId="${product.id}">view Details</div>
+    <div class="medicine-detail" medicineId="${product.id}">View Details</div>
     <img src="${product.image}" alt="${product.name}" />
     ${
       product.discountPercent > 0
@@ -115,9 +114,6 @@ document.addEventListener("DOMContentLoaded", function () {
         product.id
       }">
       ${isInCart ? "Remove from Cart" : "Add to Cart"}
-    </button>
-    <button class="compare-btn" data-id="${product.id}">
-      Compare
     </button>
   </div>
 `;
@@ -164,14 +160,17 @@ document.addEventListener("DOMContentLoaded", function () {
   function clearAllFilters() {
     categoryFilters.forEach((cb) => (cb.checked = false));
     concernFilters.forEach((cb) => (cb.checked = false));
-    priceRange.value = 100;
-    priceValue.textContent = "$100";
+    priceRange.value = 1000;
+    priceValue.textContent = "₹1000";
     searchInput.value = "";
     sortSelect.value = "popularity";
     applyFilters();
+    renderPaginatedProducts(products);
   }
 
   function applyFilters() {
+    currentPage = 1; // Reset to first page on filter
+
     let filtered = [...products];
 
     // Category filter
@@ -196,13 +195,18 @@ document.addEventListener("DOMContentLoaded", function () {
       );
     }
 
-    // Price filter
+    // Price filter - use discounted price
     const maxPrice = parseInt(priceRange.value);
-    filtered = filtered.filter((product) => product.price <= maxPrice);
+    filtered = filtered.filter((product) => {
+      console.log(product);
+      const finalPrice =
+        product.originalPrice * (1 - (product.discountPercent || 0) / 100);
+      return finalPrice <= maxPrice;
+    });
 
     // Search filter
-    const searchQuery = searchInput.value.toLowerCase();
-    if (searchQuery.trim() !== "") {
+    const searchQuery = searchInput.value.toLowerCase().trim();
+    if (searchQuery !== "") {
       filtered = filtered.filter((product) =>
         product.name.toLowerCase().includes(searchQuery)
       );
@@ -211,20 +215,34 @@ document.addEventListener("DOMContentLoaded", function () {
     // Sorting
     const sortBy = sortSelect.value;
     if (sortBy === "price-low") {
-      filtered.sort((a, b) => a.price - b.price);
-    } else if (sortBy === "price-high") {
-      filtered.sort((a, b) => b.price - a.price);
-    } else if (sortBy === "newest") {
+      console.log(sortBy);
+      console.log(filtered);
+      filtered.sort((a, b) => {
+        const priceA = a.originalPrice * (1 - a.discountPercent / 100);
+        const priceB = b.originalPrice * (1 - b.discountPercent / 100);
+        return priceA - priceB;
+      });
+      console.log(filtered);
+    }
+    if (sortBy === "price-high") {
+      filtered.sort((a, b) => {
+        const priceA = a.originalPrice * (1 - a.discountPercent / 100);
+        const priceB = b.originalPrice * (1 - b.discountPercent / 100);
+        return priceB - priceA;
+      });
+    }
+    if (sortBy === "newest") {
       filtered.sort((a, b) => b.id - a.id);
     }
 
+    // Final render
     renderPaginatedProducts(filtered, currentPage);
     updateProductCount(filtered.length);
   }
 
   // Event listeners
   priceRange.addEventListener("input", () => {
-    priceValue.textContent = "$" + priceRange.value;
+    priceValue.textContent = "₹" + priceRange.value;
     applyFilters();
   });
 

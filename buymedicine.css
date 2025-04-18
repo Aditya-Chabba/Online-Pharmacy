@@ -216,6 +216,15 @@
   flex-direction: column;
 }
 
+.medicine-detail{
+  color: #116530;
+  font-weight: 600;
+  text-align: end;
+  padding: 10px;
+  cursor: pointer;
+
+}
+
 .product-img {
   position: relative;
   width: 100%;
