@@ -19,6 +19,7 @@ body {
   background-color: #116530;
   color: white;
   flex-wrap: wrap;
+  
 }
 
 .navbar .logo {
@@ -33,7 +34,7 @@ body {
 .navbar .nav-links {
   list-style: none;
   display: flex;
-  gap: 1rem;
+  gap: 2rem;
   flex-wrap: wrap;
 }
 
