@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Payment Gateway</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="bg-animation">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+    
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                <div class="header-content">
+                    <h2>Secure Checkout</h2>
+                    <p class="subtitle">Complete your purchase securely</p>
+                </div>
+                <div class="card-logos">
+                    <i class="fab fa-cc-visa"></i>
+                    <i class="fab fa-cc-mastercard"></i>
+                    <i class="fab fa-cc-amex"></i>
+                    <i class="fab fa-cc-discover"></i>
+                    <i class="fab fa-cc-apple-pay"></i>
+                    <i class="fab fa-google-pay"></i>
+                </div>
+            </div>
+            
+            <div class="card-body">
+                <div class="left-section">
+                    <div class="payment-summary">
+                        <h3>Order Summary</h3>
+                        <div class="item">
+                            <span>Premium Headphones</span>
+                            <span>₹1,299.00</span>
+                        </div>
+                        <div class="item">
+                            <span>Express Shipping</span>
+                            <span>₹99.00</span>
+                        </div>
+                        <div class="item">
+                            <span>Tax</span>
+                            <span>₹130.00</span>
+                        </div>
+                        <div class="item total">
+                            <span>Total</span>
+                            <span>₹1,528.00</span>
+                        </div>
+                    </div>
+                    
+                    <div class="card-preview">
+                        <div class="preview-card">
+                            <div class="card-chip"></div>
+                            <div class="card-data">
+                                <div class="card-number" id="preview-number">•••• •••• •••• ••••</div>
+                                <div class="card-info">
+                                    <div class="card-name" id="preview-name">YOUR NAME</div>
+                                    <div class="card-expiry" id="preview-expiry">MM/YY</div>
+                                </div>
+                            </div>
+                            <div class="card-type" id="preview-card-logo">
+                                <i class="far fa-credit-card"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="security-badge">
+                        <div class="badge-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div class="badge-text">
+                            <span>Secure Payment</span>
+                            <small>256-bit SSL Encrypted</small>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="payment-form-container">
+                    <ul class="payment-tabs">
+                        <li class="active" data-tab="credit-card">
+                            <i class="far fa-credit-card"></i> Credit Card
+                        </li>
+                        <li data-tab="digital-wallet">
+                            <i class="fas fa-wallet"></i> Digital Wallet
+                        </li>
+                    </ul>
+                    
+                    <form id="payment-form">
+                        <div id="credit-card" class="tab-content active">
+                            <div class="form-group">
+                                <label for="card-holder">Card Holder Name</label>
+                                <input type="text" id="card-holder" placeholder="Enter your full name" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="card-number">Card Number</label>
+                                <div class="input-icon">
+                                    <input type="text" id="card-number" placeholder="1234 5678 9012 3456" maxlength="19" required>
+                                    <i id="card-type-icon" class="far fa-credit-card"></i>
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group half">
+                                    <label for="expiry-date">Expiry Date</label>
+                                    <input type="text" id="expiry-date" placeholder="MM/YY" maxlength="5" required>
+                                </div>
+                                <div class="form-group half">
+                                    <label for="cvv">CVV</label>
+                                    <div class="input-icon">
+                                        <input type="text" id="cvv" placeholder="123" maxlength="4" required>
+                                        <i class="fas fa-question-circle cvv-icon"></i>
+                                        <div class="tooltip">3-4 digit code on the back of your card</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="billing-address">Billing Address</label>
+                                <input type="text" id="billing-address" placeholder="Enter your address" required>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group half">
+                                    <label for="city">City</label>
+                                    <input type="text" id="city" placeholder="City" required>
+                                </div>
+                                <div class="form-group half">
+                                    <label for="zip">Postal Code</label>
+                                    <input type="text" id="zip" placeholder="Postal code" required>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div id="digital-wallet" class="tab-content">
+                            <div class="wallet-options">
+                                <div class="wallet-option">
+                                    <input type="radio" id="google-pay" name="wallet" value="google-pay">
+                                    <label for="google-pay">
+                                        <i class="fab fa-google-pay"></i>
+                                        <span>Google Pay</span>
+                                    </label>
+                                </div>
+                                <div class="wallet-option">
+                                    <input type="radio" id="apple-pay" name="wallet" value="apple-pay">
+                                    <label for="apple-pay">
+                                        <i class="fab fa-apple-pay"></i>
+                                        <span>Apple Pay</span>
+                                    </label>
+                                </div>
+                                <div class="wallet-option">
+                                    <input type="radio" id="paypal" name="wallet" value="paypal">
+                                    <label for="paypal">
+                                        <i class="fab fa-paypal"></i>
+                                        <span>PayPal</span>
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <div class="wallet-note">
+                                <i class="fas fa-info-circle"></i>
+                                <p>You'll be redirected to complete payment after clicking "Pay Now"</p>
+                            </div>
+                        </div>
+                        
+                        <div class="save-card">
+                            <label class="switch">
+                                <input type="checkbox" id="save-card-checkbox">
+                                <span class="slider round"></span>
+                            </label>
+                            <label for="save-card-checkbox">Save card for future payments</label>
+                        </div>
+                        
+                        <button type="submit" class="btn-pay">
+                            <span class="btn-text">Pay ₹1,528.00</span>
+                            <span class="btn-icon"><i class="fas fa-lock"></i></span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="success-modal" class="modal">
+        <div class="modal-content">
+            <div class="success-checkmark">
+                <div class="check-icon">
+                    <span class="icon-line line-tip"></span>
+                    <span class="icon-line line-long"></span>
+                    <div class="icon-circle"></div>
+                    <div class="icon-fix"></div>
+                </div>
+            </div>
+            <h2>Payment Successful!</h2>
+            <p>Your payment has been processed successfully.</p>
+            <div class="transaction-details">
+                <div class="detail">
+                    <span class="label">Amount Paid</span>
+                    <span class="value">₹1,528.00</span>
+                </div>
+                <div class="detail">
+                    <span class="label">Payment Method</span>
+                    <span class="value" id="payment-method">Credit Card</span>
+                </div>
+                <div class="detail">
+                    <span class="label">Transaction ID</span>
+                    <span class="value" id="transaction-id"></span>
+                </div>
+                <div class="detail">
+                    <span class="label">Date & Time</span>
+                    <span class="value" id="transaction-date"></span>
+                </div>
+            </div>
+            <div class="success-actions">
+                <button id="view-receipt" class="btn-secondary">
+                    <i class="fas fa-receipt"></i> View Receipt
+                </button>
+                <button id="close-modal" class="btn-primary">
+                    <i class="fas fa-check"></i> Continue
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Order Tracking System</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/contact.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Contact Us</h1>
+            <p class="subtitle">We're here to help with any questions about your orders</p>
+        </div>
+        
+        <div class="contact-container">
+            <div class="contact-info-section">
+                <div class="contact-card">
+                    <h2><i class="fas fa-map-marker-alt"></i> Our Location</h2>
+                    <p>123 Commerce Street</p>
+                    <p>Rajpura, Punjab 140401</p>
+                    <p>India</p>
+                    
+                    <div class="map-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d27573.025750458785!2d76.57577716953123!3d30.484459699999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390fc1d4f1b2e1c7%3A0x3b5ffa47b1c7e8f7!2sRajpura%2C%20Punjab%20140401!5e0!3m2!1sen!2sin!4v1650284865261!5m2!1sen!2sin" 
+                            width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+                
+                <div class="contact-card">
+                    <h2><i class="fas fa-phone-alt"></i> Call Us</h2>
+                    <p><strong>Customer Support:</strong> +91 1762 123456</p>
+                    <p><strong>Order Inquiries:</strong> +91 1762 654321</p>
+                    <p><strong>Business Hours:</strong> 9:00 AM - 6:00 PM (Mon-Sat)</p>
+                </div>
+                
+                <div class="contact-card">
+                    <h2><i class="fas fa-envelope"></i> Email Us</h2>
+                    <p><strong>Customer Support:</strong> support@example.com</p>
+                    <p><strong>Order Tracking:</strong> orders@example.com</p>
+                    <p><strong>Feedback:</strong> feedback@example.com</p>
+                </div>
+                
+                <div class="contact-card">
+                    <h2><i class="fas fa-comments"></i> Connect With Us</h2>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="contact-form-section">
+                <div class="form-card">
+                    <h2>Send Us a Message</h2>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" placeholder="Enter your phone number">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="orderNumber">Order Number (if applicable)</label>
+                            <input type="text" id="orderNumber" name="orderNumber" placeholder="e.g., ORD-2025-4872">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <select id="subject" name="subject" required>
+                                <option value="" disabled selected>Select a subject</option>
+                                <option value="order-status">Order Status Inquiry</option>
+                                <option value="return">Return or Exchange</option>
+                                <option value="payment">Payment Issue</option>
+                                <option value="product">Product Information</option>
+                                <option value="feedback">Feedback</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Your Message</label>
+                            <textarea id="message" name="message" rows="5" placeholder="Please describe your inquiry in detail..." required></textarea>
+                        </div>
+                        
+                        <div class="form-group checkbox-group">
+                            <input type="checkbox" id="newsletter" name="newsletter">
+                            <label for="newsletter">Subscribe to our newsletter for updates and promotions</label>
+                        </div>
+                        
+                        <button type="submit" class="btn primary submit-btn">
+                            <i class="fas fa-paper-plane"></i> Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        <div class="faq-section">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>How can I track my order?</h3>
+                        <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>You can track your order by visiting our <a href="index.html">Order Tracking</a> page and entering your order number. You'll receive your order number in the confirmation email sent after your purchase.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What is your return policy?</h3>
+                        <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We offer a 30-day return policy for most items. Products must be returned in their original packaging and in unused condition. Please contact our customer support team to initiate a return.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>How long does shipping take?</h3>
+                        <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Standard shipping typically takes 3-7 business days within India. Express shipping options are available at checkout for faster delivery, usually within 1-3 business days.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Do you ship internationally?</h3>
+                        <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, we ship to most international destinations. International shipping times vary by location, typically taking 7-21 business days. Additional customs fees may apply depending on your country.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="actions">
+            <a href="index.html" class="btn secondary">
+                <i class="fas fa-arrow-left"></i> Back to Order Tracking
+            </a>
+        </div>
+    </div>
+    
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2025 Order Tracking System. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Shipping Policy</a>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="js/contact.js"></script>
+</body>
+</html>
