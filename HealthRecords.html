@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Herbal-Heal | Health Records</title>
+    <style>
+        :root {
+            --primary-green: #116530;
+            --light-green: #8cb369;
+            --dark-green: #29584a;
+            --beige: #f2e8cf;
+            --light-beige: #f9f5eb;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light-beige);
+            color: #333;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .logo-icon {
+            font-size: 2rem;
+        }
+        
+       /* NAVBAR */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #116530;
+  color: white;
+  flex-wrap: wrap;
+}
+
+.navbar .logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.navbar .logo span {
+  color: #f4c430;
+}
+
+.navbar .nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.navbar .nav-links li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.navbar .nav-links li a:hover {
+  color: #f4c430;
+}   
+        
+        .container {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        
+        h1, h2, h3 {
+            color: var(--dark-green);
+        }
+        
+        .page-title {
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .page-title i {
+            font-size: 1.8rem;
+        }
+        
+        .user-selector {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+        
+        .user-selector h2 {
+            margin-bottom: 1rem;
+        }
+        
+        .search-box {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .search-box input {
+            flex: 1;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        
+        .search-box button {
+            padding: 0.8rem 1.5rem;
+            background-color: var(--primary-green);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .search-box button:hover {
+            background-color: var(--dark-green);
+        }
+        
+        .records-container {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .records-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .records-title {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .records-actions {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .btn {
+            padding: 0.5rem 1rem;
+            background-color: var(--primary-green);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-size: 0.9rem;
+        }
+        
+        .btn:hover {
+            background-color: var(--dark-green);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            border: 1px solid var(--primary-green);
+            color: var(--primary-green);
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--light-beige);
+        }
+        
+        .no-records {
+            text-align: center;
+            padding: 3rem 1rem;
+            color: #666;
+        }
+        
+        .record-card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            overflow: hidden;
+        }
+        
+        .record-header {
+            background-color: var(--beige);
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .record-date {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .record-content {
+            display: flex;
+            padding: 1rem;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .record-details {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .detail-item {
+            margin-bottom: 0.8rem;
+        }
+        
+        .detail-label {
+            font-weight: 600;
+            color: var(--dark-green);
+            margin-bottom: 0.2rem;
+        }
+        
+        .detail-value {
+            color: #333;
+        }
+        
+        .record-file {
+            flex: 1;
+            min-width: 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--light-beige);
+            padding: 1rem;
+            border-radius: 4px;
+        }
+        
+        .file-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--primary-green);
+        }
+        
+        .file-name {
+            margin-bottom: 1rem;
+            word-break: break-all;
+            text-align: center;
+        }
+        
+        .file-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+        
+        .record-actions {
+            padding: 1rem;
+            background-color: #f9f9f9;
+            display: flex;
+            justify-content: flex-end;
+            gap: 1rem;
+        }
+        
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 2rem;
+            gap: 0.5rem;
+        }
+        
+        .page-btn {
+            padding: 0.5rem 1rem;
+            border: 1px solid #ddd;
+            background-color: white;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .page-btn:hover, .page-btn.active {
+            background-color: var(--primary-green);
+            color: white;
+            border-color: var(--primary-green);
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 100;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .modal-content {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            max-width: 600px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+        
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #666;
+        }
+        
+        .close-btn:hover {
+            color: #333;
+        }
+        
+        .modal-image {
+            width: 100%;
+            max-height: 500px;
+            object-fit: contain;
+        }
+        
+        .modal-pdf {
+            width: 100%;
+            height: 500px;
+            border: none;
+        }
+        
+        footer {
+            background-color: var(--primary-green);
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 3rem;
+        }
+        
+        .patient-info {
+            background-color: var(--beige);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            display: none;
+        }
+        
+        .patient-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+        }
+        
+        .patient-details {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+        
+        .patient-column {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .patient-field {
+            margin-bottom: 0.8rem;
+        }
+        
+        .patient-label {
+            font-weight: 600;
+            color: var(--dark-green);
+            margin-bottom: 0.2rem;
+        }
+        
+        .patient-value {
+            color: #333;
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .nav-links li {
+                margin: 0.5rem 0;
+            }
+            
+            .record-content {
+                flex-direction: column;
+            }
+            
+            .search-box {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">Herbal<span>Heal</span></div>
+            <ul class="nav-links">
+                <li><a href="/home.html">Home</a></li>
+                <li><a href="/buymedicine.html" class="active">Buy Medicines</a></li>
+                <li><a href="#records">Health Records</a></li>
+                <li><a href="#offers">Offers</a></li>
+                <li><a href="/Aboutus.html">About Us</a></li>
+                <li><a href="/ContactUs.html">Contact</a></li>
+            </ul>
+            <div class="mobile-menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+    
+    <div class="container">
+        <div class="page-title">
+            <i>📋</i>
+            <h1>Health Records</h1>
+        </div>
+        
+        <div class="user-selector">
+            <h2>Find Your Records</h2>
+            <div class="search-box">
+                <input type="email" id="email-search" placeholder="Enter your email address">
+                <button id="search-btn" onclick="searchRecords()">Search Records</button>
+            </div>
+        </div>
+        
+        <div id="patient-info" class="patient-info">
+            <!-- Patient information will be displayed here -->
+        </div>
+        
+        <div class="records-container">
+            <div class="records-header">
+                <div class="records-title">
+                    <h2>Prescription History</h2>
+                </div>
+                <div class="records-actions">
+                    <button class="btn btn-outline" onclick="printRecords()">Print Report</button>
+                    <button class="btn" onclick="exportRecords()">Export Records</button>
+                </div>
+            </div>
+            
+            <div id="records-list">
+                <div class="no-records">
+                    <h3>No records found</h3>
+                    <p>Please search for your records using your email address above.</p>
+                </div>
+            </div>
+            
+            <div class="pagination" id="pagination">
+                <!-- Pagination will be added here if needed -->
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal for viewing files -->
+    <div id="file-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modal-title">View Prescription</h2>
+                <button class="close-btn" onclick="closeModal()">&times;</button>
+            </div>
+            <div id="modal-body">
+                <!-- File content will be displayed here -->
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 Herbal-Heal Pharmacy. All rights reserved.</p>
+        <p>For emergency services, please call our hotline: 1-800-HERBHEAL</p>
+    </footer>
+    
+    <script>
+        // Global variables
+        let currentUserPrescriptions = [];
+        let currentPage = 1;
+        const recordsPerPage = 5;
+        
+        // Function to search records by email
+        function searchRecords() {
+            const emailInput = document.getElementById('email-search').value.trim();
+            
+            if (!emailInput) {
+                alert('Please enter your email address.');
+                return;
+            }
+            
+            // Get all prescriptions from local storage
+            const allPrescriptions = JSON.parse(localStorage.getItem('herbalhealPrescriptions')) || [];
+            
+            // Filter prescriptions for the specified email
+            currentUserPrescriptions = allPrescriptions.filter(prescription => 
+                prescription.patientEmail.toLowerCase() === emailInput.toLowerCase()
+            );
+            
+            // Display patient info if records found
+            if (currentUserPrescriptions.length > 0) {
+                const firstRecord = currentUserPrescriptions[0];
+                displayPatientInfo(firstRecord);
+            } else {
+                document.getElementById('patient-info').style.display = 'none';
+            }
+            
+            // Reset to first page and display records
+            currentPage = 1;
+            displayRecords();
+        }
+        
+        // Function to display patient information
+        function displayPatientInfo(patientRecord) {
+            const patientInfo = document.getElementById('patient-info');
+            
+            patientInfo.innerHTML = `
+                <div class="patient-header">
+                    <h2>Patient Information</h2>
+                </div>
+                <div class="patient-details">
+                    <div class="patient-column">
+                        <div class="patient-field">
+                            <div class="patient-label">Name</div>
+                            <div class="patient-value">${patientRecord.patientName}</div>
+                        </div>
+                        <div class="patient-field">
+                            <div class="patient-label">Email</div>
+                            <div class="patient-value">${patientRecord.patientEmail}</div>
+                        </div>
+                    </div>
+                    <div class="patient-column">
+                        <div class="patient-field">
+                            <div class="patient-label">Phone</div>
+                            <div class="patient-value">${patientRecord.patientPhone}</div>
+                        </div>
+                        <div class="patient-field">
+                            <div class="patient-label">Total Prescriptions</div>
+                            <div class="patient-value">${currentUserPrescriptions.length}</div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            patientInfo.style.display = 'block';
+        }
+        
+        // Function to display records
+        function displayRecords() {
+            const recordsList = document.getElementById('records-list');
+            
+            if (currentUserPrescriptions.length === 0) {
+                recordsList.innerHTML = `
+                    <div class="no-records">
+                        <h3>No records found</h3>
+                        <p>Please search for your records using your email address above.</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            // Sort prescriptions by date (newest first)
+            currentUserPrescriptions.sort((a, b) => new Date(b.dateSubmitted) - new Date(a.dateSubmitted));
+            
+            // Calculate pagination
+            const startIndex = (currentPage - 1) * recordsPerPage;
+            const endIndex = Math.min(startIndex + recordsPerPage, currentUserPrescriptions.length);
+            const paginatedRecords = currentUserPrescriptions.slice(startIndex, endIndex);
+            
+            // Generate HTML for records
+            let recordsHtml = '';
+            
+            paginatedRecords.forEach(record => {
+                const submittedDate = new Date(record.dateSubmitted).toLocaleDateString();
+                const prescriptionDate = record.prescriptionDate;
+                
+                // Determine file type icon
+                let fileIcon = '📄';
+                if (record.fileName) {
+                    const extension = record.fileName.split('.').pop().toLowerCase();
+                    if (['jpg', 'jpeg', 'png', 'gif'].includes(extension)) {
+                        fileIcon = '🖼️';
+                    } else if (extension === 'pdf') {
+                        fileIcon = '📑';
+                    }
+                }
+                
+                recordsHtml += `
+                    <div class="record-card" data-id="${record.id}">
+                        <div class="record-header">
+                            <h3>Prescription from Dr. ${record.doctorName}</h3>
+                            <div class="record-date">Submitted: ${submittedDate}</div>
+                        </div>
+                        <div class="record-content">
+                            <div class="record-details">
+                                <div class="detail-item">
+                                    <div class="detail-label">Patient Name</div>
+                                    <div class="detail-value">${record.patientName}</div>
+                                </div>
+                                <div class="detail-item">
+                                    <div class="detail-label">Doctor</div>
+                                    <div class="detail-value">Dr. ${record.doctorName}</div>
+                                </div>
+                                <div class="detail-item">
+                                    <div class="detail-label">Prescription Date</div>
+                                    <div class="detail-value">${prescriptionDate}</div>
+                                </div>
+                                ${record.additionalNotes ? `
+                                <div class="detail-item">
+                                    <div class="detail-label">Additional Notes</div>
+                                    <div class="detail-value">${record.additionalNotes}</div>
+                                </div>
+                                ` : ''}
+                            </div>
+                            <div class="record-file">
+                                <div class="file-icon">${fileIcon}</div>
+                                <div class="file-name">${record.fileName || 'No file attached'}</div>
+                                <div class="file-actions">
+                                    <button class="btn" onclick="viewFile('${record.id}')">View Prescription</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="record-actions">
+                            <button class="btn btn-outline" onclick="downloadPrescription('${record.id}')">Download</button>
+                            <button class="btn" onclick="viewDetails('${record.id}')">View Details</button>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            recordsList.innerHTML = recordsHtml;
+            
+            // Update pagination
+            updatePagination();
+        }
+        
+        // Function to update pagination
+        function updatePagination() {
+            const paginationElement = document.getElementById('pagination');
+            const totalPages = Math.ceil(currentUserPrescriptions.length / recordsPerPage);
+            
+            if (totalPages <= 1) {
+                paginationElement.innerHTML = '';
+                return;
+            }
+            
+            let paginationHtml = '';
+            
+            // Previous button
+            paginationHtml += `
+                <button class="page-btn" onclick="changePage(${currentPage - 1})" ${currentPage === 1 ? 'disabled' : ''}>
+                    &laquo; Prev
+                </button>
+            `;
+            
+            // Page numbers
+            for (let i = 1; i <= totalPages; i++) {
+                paginationHtml += `
+                    <button class="page-btn ${i === currentPage ? 'active' : ''}" onclick="changePage(${i})">
+                        ${i}
+                    </button>
+                `;
+            }
+            
+            // Next button
+            paginationHtml += `
+                <button class="page-btn" onclick="changePage(${currentPage + 1})" ${currentPage === totalPages ? 'disabled' : ''}>
+                    Next &raquo;
+                </button>
+            `;
+            
+            paginationElement.innerHTML = paginationHtml;
+        }
+        
+        // Function to change page
+        function changePage(newPage) {
+            const totalPages = Math.ceil(currentUserPrescriptions.length / recordsPerPage);
+            
+            if (newPage < 1 || newPage > totalPages) {
+                return;
+            }
+            
+            currentPage = newPage;
+            displayRecords();
+        }
+        
+        // Function to view file
+        function viewFile(recordId) {
+            const record = currentUserPrescriptions.find(r => r.id === recordId);
+            
+            if (!record || !record.fileName) {
+                alert('No file available for this prescription.');
+                return;
+            }
+            
+            const modal = document.getElementById('file-modal');
+            const modalTitle = document.getElementById('modal-title');
+            const modalBody = document.getElementById('modal-body');
+            
+            modalTitle.textContent = `Prescription from Dr. ${record.doctorName}`;
+            
+            // In a real application, you would access the stored file.
+            // Since we can't actually show the user's file, we'll show a placeholder
+            const fileExtension = record.fileName.split('.').pop().toLowerCase();
+            
+            if (['jpg', 'jpeg', 'png', 'gif'].includes(fileExtension)) {
+                // Show image placeholder
+                modalBody.innerHTML = `
+                    <div style="text-align: center; padding: 20px;">
+                        <p>This is where the actual prescription image would be displayed.</p>
+                        <p>Filename: ${record.fileName}</p>
+                        <div style="margin: 20px auto; width: 300px; height: 400px; background-color: var(--beige); display: flex; align-items: center; justify-content: center;">
+                            <div style="text-align: center;">
+                                <div style="font-size: 4rem; margin-bottom: 1rem;">🖼️</div>
+                                <p>Image Placeholder</p>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            } else if (fileExtension === 'pdf') {
+                // Show PDF placeholder
+                modalBody.innerHTML = `
+                    <div style="text-align: center; padding: 20px;">
+                        <p>This is where the actual prescription PDF would be displayed.</p>
+                        <p>Filename: ${record.fileName}</p>
+                        <div style="margin: 20px auto; width: 300px; height: 400px; background-color: var(--beige); display: flex; align-items: center; justify-content: center;">
+                            <div style="text-align: center;">
+                                <div style="font-size: 4rem; margin-bottom: 1rem;">📑</div>
+                                <p>PDF Placeholder</p>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            } else {
+                // Generic file placeholder
+                modalBody.innerHTML = `
+                    <div style="text-align: center; padding: 20px;">
+                        <p>This is where the actual prescription file would be displayed.</p>
+                        <p>Filename: ${record.fileName}</p>
+                        <div style="margin: 20px auto; width: 300px; height: 400px; background-color: var(--beige); display: flex; align-items: center; justify-content: center;">
+                            <div style="text-align: center;">
+                                <div style="font-size: 4rem; margin-bottom: 1rem;">📄</div>
+                                <p>File Placeholder</p>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+            
+            modal.style.display = 'flex';
+        }
+        
+        // Function to close modal
+        function closeModal() {
+            document.getElementById('file-modal').style.display = 'none';
+        }
+        
+        // Function to view prescription details
+        function viewDetails(recordId) {
+            const record = currentUserPrescriptions.find(r => r.id === recordId);
+            
+            if (!record) {
+                return;
+            }
+            
+            const submittedDate = new Date(record.dateSubmitted).toLocaleString();
+            
+            alert(`
+                Prescription Details
+                --------------------
+                Patient: ${record.patientName}
+                Email: ${record.patientEmail}
+                Phone: ${record.patientPhone}
+                
+                Doctor: ${record.doctorName}
+                Prescription Date: ${record.prescriptionDate}
+                
+                File: ${record.fileName || 'No file attached'}
+                
+                Additional Notes:
+                ${record.additionalNotes || 'None'}
+                
+                Submitted on: ${submittedDate}
+            `);
+        }
+        
+        // Function to download prescription (simulated)
+        function downloadPrescription(recordId) {
+            const record = currentUserPrescriptions.find(r => r.id === recordId);
+            
+            if (!record || !record.fileName) {
+                alert('No file available for download.');
+                return;
+            }
+            
+            alert(`In a real application, this would download the file: ${record.fileName}`);
+        }
+        
+        // Function to print records (simulated)
+        function printRecords() {
+            if (currentUserPrescriptions.length === 0) {
+                alert('No records to print.');
+                return;
+            }
+            
+            alert('In a real application, this would print your health records.');
+        }
+        
+        // Function to export records (simulated)
+        function exportRecords() {
+            if (currentUserPrescriptions.length === 0) {
+                alert('No records to export.');
+                return;
+            }
+            
+            alert('In a real application, this would export your health records as a CSV or PDF file.');
+        }
+        
+        // Close modal when clicking outside the modal content
+        window.onclick = function(event) {
+            const modal = document.getElementById('file-modal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+        
+        // Check if there's an email in URL parameter
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const emailParam = urlParams.get('email');
+            
+            if (emailParam) {
+                document.getElementById('email-search').value = emailParam;
+                searchRecords();
+            }
+        });
+    </script>
+</body>
+</html>
