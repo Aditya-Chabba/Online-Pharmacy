@@ -6,7 +6,7 @@
     <title>Herbal-Heal | Health Records</title>
     <style>
         :root {
-            --primary-green: #3a7563;
+            --primary-green: #116530;
             --light-green: #8cb369;
             --dark-green: #29584a;
             --beige: #f2e8cf;
@@ -25,14 +25,6 @@
             color: #333;
         }
         
-        header {
-            background-color: var(--primary-green);
-            color: white;
-            padding: 1rem;
-            text-align: center;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-        
         .logo {
             display: flex;
             align-items: center;
@@ -44,32 +36,43 @@
             font-size: 2rem;
         }
         
-        nav {
-            background-color: var(--dark-green);
-            padding: 0.5rem 1rem;
-        }
-        
-        .nav-links {
-            display: flex;
-            justify-content: center;
-            list-style: none;
-        }
-        
-        .nav-links li {
-            margin: 0 1rem;
-        }
-        
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            padding: 0.5rem 1rem;
-            transition: all 0.3s ease;
-        }
-        
-        .nav-links a:hover {
-            background-color: var(--primary-green);
-            border-radius: 4px;
-        }
+       /* NAVBAR */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #116530;
+  color: white;
+  flex-wrap: wrap;
+}
+
+.navbar .logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.navbar .logo span {
+  color: #f4c430;
+}
+
+.navbar .nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.navbar .nav-links li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.navbar .nav-links li a:hover {
+  color: #f4c430;
+}   
         
         .container {
             max-width: 1000px;
@@ -415,23 +418,21 @@
 </head>
 <body>
     <header>
-        <div class="logo">
-            <span class="logo-icon">🌿</span>
-            <h1>Herbal-Heal</h1>
-        </div>
-        <p>Your Natural Health Pharmacy</p>
+        <nav class="navbar">
+            <div class="logo">Herbal<span>Heal</span></div>
+            <ul class="nav-links">
+                <li><a href="/home.html">Home</a></li>
+                <li><a href="/buymedicine.html" class="active">Buy Medicines</a></li>
+                <li><a href="#records">Health Records</a></li>
+                <li><a href="#offers">Offers</a></li>
+                <li><a href="/Aboutus.html">About Us</a></li>
+                <li><a href="/ContactUs.html">Contact</a></li>
+            </ul>
+            <div class="mobile-menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
     </header>
-    
-    <nav>
-        <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="products.html">Products</a></li>
-            <li><a href="prescription.html">Upload Prescription</a></li>
-            <li><a href="health-records.html">Health Records</a></li>
-            <li><a href="contact.html">Contact Us</a></li>
-        </ul>
-    </nav>
     
     <div class="container">
         <div class="page-title">
