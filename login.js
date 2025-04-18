@@ -16,7 +16,7 @@ document.getElementById("loginForm").addEventListener("submit", async function (
             if (users[key].email === email && users[key].password === password) {
                 isAuthenticated = true;
                 sessionStorage.setItem("user", email); // Store session
-                window.location.href = "dashboard.html"; // Redirect after login
+                window.location.href = "home.html"; // Redirect after login
                 break;
             }
         }
