@@ -30,6 +30,39 @@ function generateStarRating(rating) {
 document.addEventListener("DOMContentLoaded", () => {
   const productId = getProductIdFromUrl();
   const product = products.find((p) => p.id === productId) || products[0];
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+  const isInCart = cart.includes(productId);
+
+  const actionButton = document.querySelector(".btn-add-to-cart");
+  if (actionButton) {
+    // Set the innerHTML based on cart state
+    actionButton.innerHTML = isInCart
+      ? `<i class="fas fa-trash"></i> Remove from Cart`
+      : `<i class="fas fa-shopping-cart"></i> Add to Cart`;
+
+    // Conditionally add or remove class
+    actionButton.classList.toggle("delete-btn", isInCart);
+
+    actionButton.addEventListener("click", () => {
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+      const isInCartNow = cart.includes(productId);
+
+      if (isInCartNow) {
+        cart = cart.filter((id) => id !== productId);
+        actionButton.innerHTML = `<i class="fas fa-shopping-cart"></i> Add to Cart`;
+        actionButton.classList.remove("delete-btn");
+      } else {
+        cart.push(productId);
+        actionButton.innerHTML = `<i class="fas fa-trash"></i> Remove from Cart`;
+        actionButton.classList.add("delete-btn");
+      }
+
+      localStorage.setItem("cart", JSON.stringify(cart));
+      updateCartCount();
+    });
+  }
 
   renderProductPage(product);
   updateCartCount();
@@ -39,87 +72,72 @@ document.addEventListener("DOMContentLoaded", () => {
 function renderProductPage(product) {
   document.title = `${product.name} - Herbal-Heal`;
 
-  // Render top info
   document.getElementById("medicine-name").textContent = product.name;
   document.getElementById("medicine-img").src = product.image;
   document.getElementById("medicine-img").alt = product.name;
   document.getElementById("medicine-title").textContent = product.name;
   document.getElementById("rating-value").textContent = product.rating;
-  document.getElementById("rating-stars").innerHTML = generateStarRating(product.rating);
-  document.getElementById("medicine-category").textContent = capitalizeFirstLetter(product.category);
+  document.getElementById("rating-stars").innerHTML = generateStarRating(
+    product.rating
+  );
+  document.getElementById("medicine-category").textContent =
+    capitalizeFirstLetter(product.category);
   document.getElementById("medicine-concerns").textContent = product.concerns
     .map(capitalizeFirstLetter)
     .join(", ");
 
-  // Pricing
-  const discountedPrice = calculateDiscountedPrice(product.originalPrice, product.discountPercent);
-  document.getElementById("original-price").textContent = `₹${product.originalPrice}`;
+  const discountedPrice = calculateDiscountedPrice(
+    product.originalPrice,
+    product.discountPercent
+  );
+  document.getElementById(
+    "original-price"
+  ).textContent = `₹${product.originalPrice}`;
   document.getElementById("discount-price").textContent = `₹${discountedPrice}`;
 
   const hasDiscount = product.discountPercent > 0;
-  document.getElementById("discount-percent").textContent = hasDiscount ? `${product.discountPercent}% OFF` : "";
-  document.getElementById("original-price").style.display = hasDiscount ? "inline" : "none";
-  document.getElementById("discount-percent").style.display = hasDiscount ? "inline" : "none";
+  document.getElementById("discount-percent").textContent = hasDiscount
+    ? `${product.discountPercent}% OFF`
+    : "";
+  document.getElementById("original-price").style.display = hasDiscount
+    ? "inline"
+    : "none";
+  document.getElementById("discount-percent").style.display = hasDiscount
+    ? "inline"
+    : "none";
 
-  setupQuantityButtons(product.id);
   renderProductDetails(product);
   loadRelatedProducts(product);
 }
 
-// ===== Quantity Buttons & Cart =====
-function setupQuantityButtons(productId) {
-  const quantityInput = document.getElementById("quantity");
-  const decreaseBtn = document.getElementById("decrease-quantity");
-  const increaseBtn = document.getElementById("increase-quantity");
-
-  decreaseBtn.onclick = () => {
-    let qty = parseInt(quantityInput.value);
-    if (qty > 1) quantityInput.value = qty - 1;
-  };
-
-  increaseBtn.onclick = () => {
-    let qty = parseInt(quantityInput.value);
-    if (qty < 10) quantityInput.value = qty + 1;
-  };
-
-  document.querySelector(".btn-add-to-cart").onclick = () => {
-    addToCart(productId, parseInt(quantityInput.value));
-  };
-
-  document.querySelector(".btn-buy-now").onclick = () => {
-    addToCart(productId, parseInt(quantityInput.value));
-    window.location.href = "/checkout.html";
-  };
-}
-
-function addToCart(productId, quantity) {
+function addToCart(productId, buttonElement = null) {
   let cart = JSON.parse(localStorage.getItem("cart")) || [];
-  const existingItem = cart.find((item) => item.id === productId);
+  const isInCart = cart.includes(productId);
 
-  if (existingItem) {
-    existingItem.quantity += quantity;
+  if (isInCart) {
+    cart = cart.filter((id) => id !== productId);
+    showNotification("Item removed from your cart");
+    if (buttonElement) {
+      buttonElement.classList.remove("delete-btn");
+      buttonElement.innerHTML = `<i class="fas fa-shopping-cart"></i> Add to Cart`;
+    }
   } else {
-    const product = products.find((p) => p.id === productId);
-    cart.push({
-      id: productId,
-      name: product.name,
-      price: calculateDiscountedPrice(product.originalPrice, product.discountPercent),
-      originalPrice: product.originalPrice,
-      image: product.image,
-      quantity,
-    });
+    cart.push(productId);
+    showNotification("Item added to cart");
+    if (buttonElement) {
+      buttonElement.classList.add("delete-btn")
+      buttonElement.innerHTML = `<i class="fas fa-trash"></i> Remove from Cart`;
+    }
   }
 
   localStorage.setItem("cart", JSON.stringify(cart));
   updateCartCount();
-  showNotification(`${quantity} ${quantity > 1 ? "items" : "item"} added to cart`);
 }
 
 function updateCartCount() {
   const cart = JSON.parse(localStorage.getItem("cart")) || [];
-  const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
   const cartCountElement = document.querySelector(".cart-count");
-  if (cartCountElement) cartCountElement.textContent = totalItems;
+  if (cartCountElement) cartCountElement.textContent = cart.length;
 }
 
 function showNotification(message) {
@@ -161,9 +179,12 @@ function renderProductDetails(product) {
       <div class="tab-pane" id="benefits">
         <h3>Benefits</h3>
         <ul class="benefits-list">
-          ${product.benefits.map(
-            (b) => `<li><i class="fas fa-check-circle"></i><div><h4>${b.title}</h4><p>${b.description}</p></div></li>`
-          ).join("")}
+          ${product.benefits
+            .map(
+              (b) =>
+                `<li><i class="fas fa-check-circle"></i><div><h4>${b.title}</h4><p>${b.description}</p></div></li>`
+            )
+            .join("")}
         </ul>
       </div>
     </div>
@@ -191,7 +212,7 @@ function setupTabToggle() {
 // ===== Related Products =====
 function loadRelatedProducts(currentProduct) {
   const container = document.getElementById("related-products-container");
-  container.innerHTML = ""; // clear previous entries if any
+  container.innerHTML = "";
 
   const related = products
     .filter(
@@ -202,8 +223,15 @@ function loadRelatedProducts(currentProduct) {
     )
     .slice(0, 4);
 
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
   related.forEach((product) => {
-    const discounted = calculateDiscountedPrice(product.originalPrice, product.discountPercent);
+    const discounted = calculateDiscountedPrice(
+      product.originalPrice,
+      product.discountPercent
+    );
+    const isInCart = cart.includes(product.id);
+
     const productCard = document.createElement("div");
     productCard.className = "product-card";
     productCard.innerHTML = `
@@ -218,21 +246,33 @@ function loadRelatedProducts(currentProduct) {
           </div>
           <div class="product-price">
             <span class="current-price">₹${discounted}</span>
-            ${product.discountPercent > 0 ? `<span class="original-price">₹${product.originalPrice}</span>` : ""}
+            ${
+              product.discountPercent > 0
+                ? `<span class="original-price">₹${product.originalPrice}</span>`
+                : ""
+            }
           </div>
         </div>
       </a>
-      <button class="add-to-cart" data-id="${product.id}">
-        <i class="fas fa-shopping-cart"></i> Add
-      </button>
+      <button class="add-to-cart ${isInCart ? "delete-btn" : ""}" data-id="${
+      product.id
+    }">
+  ${
+    isInCart
+      ? `<i class="fas fa-trash"></i> Remove from Cart`
+      : `<i class="fas fa-shopping-cart"></i> Add to Cart`
+  }
+</button>
     `;
+
     container.appendChild(productCard);
   });
 
   container.querySelectorAll(".add-to-cart").forEach((btn) => {
     btn.addEventListener("click", (e) => {
       e.preventDefault();
-      addToCart(parseInt(btn.dataset.id), 1);
+      const productId = parseInt(btn.dataset.id);
+      addToCart(productId, btn);
     });
   });
 }
