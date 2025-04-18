@@ -1,2 +1,7 @@
-const LoginButton = document.getElementById("login-button");
-LoginButton.addEventListener("click",)
+const accountBtn = document.querySelector(".login-button"); 
+
+accountBtn.addEventListener("click", goToUserDashBoard);
+
+function goToUserDashBoard() {
+    window.location.href = "userDashboard.html";
+}

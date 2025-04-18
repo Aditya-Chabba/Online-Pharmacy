@@ -5,12 +5,50 @@
     <link rel="stylesheet" href="./signUp.css">
 </head>
 <body>
-    <h2>Signup</h2>
-    <form id="signupForm">
-        <input type="email" id="email" placeholder="Enter email" required><br>
-        <input type="password" id="password" placeholder="Enter password" required><br>
-        <button type="submit">Signup</button>
-    </form>
+    <header>
+        <nav class="navbar">
+          <div class="logo">Herbal<span>Heal</span></div>
+          <ul class="nav-links">
+            <li><a href="/home.html"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="/buymedicine.html"><i class="fas fa-pills"></i> Buy Medicines</a></li>
+            <li><a href="/PrescriptionUpload.html"><i class="fas fa-file-medical"></i> Health Records</a></li>
+            <li><a href="/MyOrders.html"><i class="fas fa-shopping-bag"></i> My Orders</a></li>
+            <li><a href="/Aboutus.html"><i class="fas fa-info-circle"></i> About Us</a></li>
+            <li><a href="/ContactUs.html"><i class="fas fa-phone-alt"></i> Contact</a></li>
+          </ul>
+          
+        </nav>
+      </header>
+    <section id="form">
+        <div class="signup-container">
+            <h2>Create Your Account</h2>
+            <form id="signupForm" enctype="multipart/form-data">
+                <input type="text" id="name" placeholder="Enter full name" required><br>
+                <input type="email" id="email" placeholder="Enter email" required><br>
+                <input type="password" id="password" placeholder="Enter password" required><br>
+                <input type="text" id="mobile" placeholder="Enter mobile number" required><br>
+                <textarea id="address" placeholder="Enter address" required></textarea><br>
+    
+                <button type="submit">Signup</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+          <div class="footer-logo"><span>Herbal-Heal</span></div>
+          <p>Your trusted online pharmacy for herbal remedies.</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+        <div class="copyright">
+          <p>&copy; 2025 Herbal-Heal. All rights reserved.</p>
+        </div>
+      </footer>
+    
 
     <script src="signUp.js"></script>
 </body>

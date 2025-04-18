@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>User Dashboard - Herbal Heal</title>
+  <link rel="stylesheet" href="userDashboard.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=person" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-database-compat.js"></script>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">Herbal<span>Heal</span></div>
+      <ul class="nav-links">
+        <li><a href="/home.html"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="/buymedicine.html"><i class="fas fa-pills"></i> Buy Medicines</a></li>
+        <li><a href="/PrescriptionUpload.html"><i class="fas fa-file-medical"></i> Health Records</a></li>
+        <li><a href="/MyOrders.html"><i class="fas fa-shopping-bag"></i> My Orders</a></li>
+        <li><a href="/Aboutus.html"><i class="fas fa-info-circle"></i> About Us</a></li>
+        <li><a href="/ContactUs.html"><i class="fas fa-phone-alt"></i> Contact</a></li>
+      </ul>
+      <div class="account">
+        <span class="material-symbols-outlined">person</span>
+      </div>
+    </nav>
+  </header>
+
+  <main class="dashboard">
+    <div class="welcome-banner">
+      <h1>Welcome to Your Dashboard</h1>
+      <p>Manage your profile, orders, and health records in one place</p>
+    </div>
+
+    <div class="dashboard-grid">
+      <section class="user-profile card">
+        <div class="card-header">
+          <h2><i class="fas fa-user-circle"></i> User Profile</h2>
+          <button type="button" id="editBtn" class="edit-btn"><i class="fas fa-edit"></i> Edit</button>
+        </div>
+        <form id="userForm">
+          <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" placeholder="Name" disabled required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="Email" disabled required />
+          </div>
+          <div class="form-group">
+            <label for="address">Address</label>
+            <textarea id="address" placeholder="Address" disabled required rows="3"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="mobile">Mobile Number</label>
+            <input type="tel" id="mobile" placeholder="Mobile Number" disabled required />
+          </div>
+          <div class="form-actions">
+            <button type="submit" id="saveBtn" class="save-btn"><i class="fas fa-save"></i> Save Changes</button>
+            <button type="button" id="cancelBtn" class="cancel-btn"><i class="fas fa-times"></i> Cancel</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="user-orders card">
+        <div class="card-header">
+          <h2><i class="fas fa-shopping-bag"></i> Recent Orders</h2>
+          <a href="/MyOrders.html" class="view-all">View All</a>
+        </div>
+        <div id="orderSection" class="orders-list">
+          <div class="loading">Loading your orders...</div>
+        </div>
+      </section>
+
+      <section class="health-records card">
+        <div class="card-header">
+          <h2><i class="fas fa-file-medical"></i> Health Records</h2>
+          <a href="/PrescriptionUpload.html" class="upload-btn"><i class="fas fa-plus"></i> Add Record</a>
+        </div>
+        <div id="healthRecords" class="records-list">
+          <div class="loading">Loading your health records...</div>
+        </div>
+      </section>
+    </div>
+
+    <div class="logout-container">
+      <button id="logoutBtn" class="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</button>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-logo"><span>Herbal-Heal</span></div>
+      <p>Your trusted online pharmacy for herbal remedies.</p>
+      <div class="social-links">
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+    <div class="copyright">
+      <p>&copy; 2025 Herbal-Heal. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="userDashboard.js"></script>
+</body>
+</html>
