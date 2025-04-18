@@ -16,6 +16,7 @@ document.getElementById("loginForm").addEventListener("submit", async function (
             if (users[key].email === email && users[key].password === password) {
                 isAuthenticated = true;
                 sessionStorage.setItem("user", email); 
+                localStorage.setItem("userId", key);
                 window.location.href = "home.html"; 
                 break;
             }
