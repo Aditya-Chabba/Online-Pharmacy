@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediCart - Your Pharmacy Shopping Cart</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/cart.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>Medi<span>Cart</span></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Shop</a></li>
+                    <li><a href="#">Prescriptions</a></li>
+                    <li><a href="#">Health Blog</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="cart-icon" id="cart-icon">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-count">0</span>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="shopping-cart">
+                <h2>Your Cart</h2>
+                <div class="cart-summary">
+                    <p><span id="cart-items-count">0</span> Items in your cart</p>
+                </div>
+                
+                <div class="cart-items" id="cart-items">
+                    <!-- Cart items will be dynamically added here -->
+                </div>
+                
+                <div class="cart-total">
+                    <div class="subtotal">
+                        <span>Subtotal</span>
+                        <span id="subtotal-amount">₹0.00</span>
+                    </div>
+                    <div class="shipping">
+                        <span>Shipping</span>
+                        <span id="shipping-amount">₹50.00</span>
+                    </div>
+                    <div class="discount">
+                        <span>Discount</span>
+                        <span id="discount-amount">-₹0.00</span>
+                    </div>
+                    <div class="total">
+                        <span>Total</span>
+                        <span id="total-amount">₹50.00</span>
+                    </div>
+                </div>
+                
+                <div class="promo-code">
+                    <input type="text" placeholder="Enter promo code">
+                    <button>Apply</button>
+                </div>
+                
+                <div class="cart-actions">
+                    <button class="continue-shopping">Continue Shopping</button>
+                    <button class="proceed-checkout" id="checkout-btn">Proceed to Checkout</button>
+                </div>
+            </div>
+            
+            <div class="recommended-products">
+                <h3>Recommended for You</h3>
+                <div class="product-grid">
+                    <!-- Recommended products will be added here -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>MediCart</h3>
+                    <p>Your trusted online pharmacy for all healthcare needs.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                        <li><a href="#">FAQs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <p>Email: support@medicart.com</p>
+                    <p>Phone: +91 123 456 7890</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 MediCart. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/cart.js"></script>
+</body>
+</html>
