@@ -1,4 +1,4 @@
-import products from "./data/medicine.js";
+import products from "../../data/medicine.js";
 document.addEventListener("DOMContentLoaded", function () {
   const searchInput = document.getElementById("search-input");
   const searchButton = document.getElementById("search-button");
@@ -127,7 +127,7 @@ document.addEventListener("DOMContentLoaded", function () {
     viewDetail.forEach((btn) => {
       const id = parseInt(btn.getAttribute("medicineId"));
       btn.addEventListener("click", () => {
-        window.location.href = `medicineDetail.html?id=${id}`;
+        window.location.href = `/Pages/Medicine detail page/medicineDetail.html?id=${id}`;
       });
     });
 
