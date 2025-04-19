@@ -19,7 +19,7 @@ body {
 
 /* Header Styles */
 header {
-    background-color: #ffffff;
+    background-color: #3d8b40;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     padding: 15px 0;
 }
@@ -33,19 +33,22 @@ header .container {
 .logo h1 {
     font-size: 24px;
     font-weight: 600;
-    color: #333;
+    color: white;
 }
 
 .logo span {
-    color: #4CAF50;
+    color: yellow;
 }
 
 .steps {
     display: flex;
     align-items: center;
+    color: white;
+    
 }
 
 .step {
+    color: white;
     display: flex;
     align-items: center;
     margin-right: 30px;
@@ -92,11 +95,12 @@ header .container {
 
 .step-name {
     font-size: 14px;
-    color: #666;
+    
+    color: white;
 }
 
 .step.active .step-name {
-    color: #333;
+    color: yellow;
     font-weight: 500;
 }
 
