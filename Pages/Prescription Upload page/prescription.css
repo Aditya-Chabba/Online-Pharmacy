@@ -18,6 +18,23 @@ body {
   color: #333;
 }
 
+
+/* Cart Badge */
+.cart-count {
+  background-color: #8bc34a;
+  color: white;
+  font-size: 12px;
+  height: 18px;
+  width: 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  position: relative;
+  top: -10px;
+  left: -5px;
+}
+
 .container {
   max-width: 800px;
   margin: 2rem auto;
