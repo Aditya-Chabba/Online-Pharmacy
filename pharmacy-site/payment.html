@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediCart - Payment Gateway</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/payment.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>Medi<span>Cart</span></h1>
+            </div>
+            <div class="steps">
+                <div class="step completed">
+                    <span class="step-number">1</span>
+                    <span class="step-name">Cart</span>
+                </div>
+                <div class="step active">
+                    <span class="step-number">2</span>
+                    <span class="step-name">Payment</span>
+                </div>
+                <div class="step">
+                    <span class="step-number">3</span>
+                    <span class="step-name">Confirmation</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="payment-container">
+                <div class="payment-methods">
+                    <h2>Payment Method</h2>
+                    
+                    <div class="payment-tabs">
+                        <div class="tab active" data-tab="upi">UPI</div>
+                        <div class="tab" data-tab="cards">Credit/Debit Card</div>
+                        <div class="tab" data-tab="netbanking">Net Banking</div>
+                        <div class="tab" data-tab="wallet">Wallet</div>
+                    </div>
+                    
+                    <div class="payment-content active" id="upi-content">
+                        <div class="upi-options">
+                            <div class="upi-option">
+                                <input type="radio" name="upi-method" id="upi-id" checked>
+                                <label for="upi-id">Pay via UPI ID</label>
+                            </div>
+                            <div class="upi-option">
+                                <input type="radio" name="upi-method" id="upi-qr">
+                                <label for="upi-qr">Pay via QR Code</label>
+                            </div>
+                        </div>
+                        
+                        <div class="upi-id-form active">
+                            <div class="form-group">
+                                <label for="upi-id-input">Enter UPI ID</label>
+                                <input type="text" id="upi-id-input" placeholder="yourname@upi">
+                            </div>
+                            <div class="upi-apps">
+                                <p>Popular UPI Apps</p>
+                                <div class="app-icons">
+                                    <img src="https://via.placeholder.com/40x40" alt="PhonePe">
+                                    <img src="https://via.placeholder.com/40x40" alt="Google Pay">
+                                    <img src="https://via.placeholder.com/40x40" alt="Paytm">
+                                    <img src="https://via.placeholder.com/40x40" alt="Amazon Pay">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="upi-qr-form">
+                            <div class="qr-code">
+                                <img src="https://via.placeholder.com/200x200" alt="UPI QR Code">
+                            </div>
+                            <p>Scan this QR code with any UPI app to pay</p>
+                        </div>
+                    </div>
+                    
+                    <div class="payment-content" id="cards-content">
+                        <div class="card-form">
+                            <div class="form-group">
+                                <label for="card-number">Card Number</label>
+                                <input type="text" id="card-number" placeholder="1234 5678 9012 3456" maxlength="19">
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="expiry-date">Expiry Date</label>
+                                    <input type="text" id="expiry-date" placeholder="MM/YY" maxlength="5">
+                                </div>
+                                <div class="form-group">
+                                    <label for="cvv">CVV</label>
+                                    <input type="password" id="cvv" placeholder="***" maxlength="3">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="card-name">Name on Card</label>
+                                <input type="text" id="card-name" placeholder="John Doe">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="payment-content" id="netbanking-content">
+                        <div class="bank-options">
+                            <p>Select your bank</p>
+                            <div class="popular-banks">
+                                <div class="bank">
+                                    <input type="radio" name="bank" id="sbi">
+                                    <label for="sbi">SBI</label>
+                                </div>
+                                <div class="bank">
+                                    <input type="radio" name="bank" id="hdfc">
+                                    <label for="hdfc">HDFC</label>
+                                </div>
+                                <div class="bank">
+                                    <input type="radio" name="bank" id="icici">
+                                    <label for="icici">ICICI</label>
+                                </div>
+                                <div class="bank">
+                                    <input type="radio" name="bank" id="axis">
+                                    <label for="axis">Axis</label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="other-bank">Other Banks</label>
+                                <select id="other-bank">
+                                    <option value="">Select Bank</option>
+                                    <option value="pnb">Punjab National Bank</option>
+                                    <option value="bob">Bank of Baroda</option>
+                                    <option value="canara">Canara Bank</option>
+                                    <option value="kotak">Kotak Mahindra Bank</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="payment-content" id="wallet-content">
+                        <div class="wallet-options">
+                            <div class="wallet">
+                                <input type="radio" name="wallet" id="paytm">
+                                <label for="paytm">
+                                    <img src="https://via.placeholder.com/30x30" alt="Paytm">
+                                    <span>Paytm</span>
+                                </label>
+                            </div>
+                            <div class="wallet">
+                                <input type="radio" name="wallet" id="phonepe">
+                                <label for="phonepe">
+                                    <img src="https://via.placeholder.com/30x30" alt="PhonePe">
+                                    <span>PhonePe</span>
+                                </label>
+                            </div>
+                            <div class="wallet">
+                                <input type="radio" name="wallet" id="amazonpay">
+                                <label for="amazonpay">
+                                    <img src="https://via.placeholder.com/30x30" alt="Amazon Pay">
+                                    <span>Amazon Pay</span>
+                                </label>
+                            </div>
+                            <div class="wallet">
+                                <input type="radio" name="wallet" id="mobikwik">
+                                <label for="mobikwik">
+                                    <img src="https://via.placeholder.com/30x30" alt="MobiKwik">
+                                    <span>MobiKwik</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="order-summary">
+                    <h2>Order Summary</h2>
+                    <div class="order-items" id="order-items">
+                        <!-- Order items will be dynamically added here -->
+                    </div>
+                    
+                    <div class="order-total">
+                        <div class="subtotal">
+                            <span>Subtotal</span>
+                            <span id="order-subtotal">₹0.00</span>
+                        </div>
+                        <div class="shipping">
+                            <span>Shipping</span>
+                            <span id="order-shipping">₹50.00</span>
+                        </div>
+                        <div class="discount">
+                            <span>Discount</span>
+                            <span id="order-discount">-₹0.00</span>
+                        </div>
+                        <div class="total">
+                            <span>Total</span>
+                            <span id="order-total">₹50.00</span>
+                        </div>
+                    </div>
+                    
+                    <div class="payment-actions">
+                        <button class="back-to-cart">Back to Cart</button>
+                        <button class="pay-now" id="pay-now-btn">Pay Now</button>
+                    </div>
+                    
+                    <div class="secure-payment">
+                        <i class="fas fa-lock"></i>
+                        <span>Secure Payment</span>
+                        <p>Your payment information is securely processed</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>MediCart</h3>
+                    <p>Your trusted online pharmacy for all healthcare needs.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                        <li><a href="#">FAQs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <p>Email: support@medicart.com</p>
+                    <p>Phone: +91 123 456 7890</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 MediCart. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Payment Processing Modal -->
+    <div class="modal" id="payment-modal">
+        <div class="modal-content">
+            <div class="loader"></div>
+            <p>Processing your payment...</p>
+        </div>
+    </div>
+
+    <!-- Payment Success Modal -->
+    <div class="modal" id="success-modal">
+        <div class="modal-content success">
+            <i class="fas fa-check-circle"></i>
+            <h3>Payment Successful!</h3>
+            <p>Your order has been placed successfully.</p>
+            <p>Order ID: <span id="order-id"></span></p>
+            <button id="continue-shopping">Continue Shopping</button>
+        </div>
+    </div>
+
+    <script src="assets/js/payment.js"></script>
+</body>
+</html>
