@@ -1,4 +1,5 @@
 import products from "../../data/medicine.js";
+
 // ===== Utility Functions =====
 function getProductIdFromUrl() {
   const urlParams = new URLSearchParams(window.location.search);
