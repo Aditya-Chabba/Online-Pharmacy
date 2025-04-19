@@ -1,5 +1,4 @@
-import products from "./data/medicine.js";
-
+import products from "../../data/medicine.js";
 // ===== Utility Functions =====
 function getProductIdFromUrl() {
   const urlParams = new URLSearchParams(window.location.search);
@@ -29,6 +28,7 @@ function generateStarRating(rating) {
 // ===== Page Initialization =====
 document.addEventListener("DOMContentLoaded", () => {
   const productId = getProductIdFromUrl();
+  console.log(productId)
   const product = products.find((p) => p.id === productId) || products[0];
   let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
