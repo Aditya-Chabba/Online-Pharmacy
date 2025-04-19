@@ -1,4 +1,4 @@
-import products from "./data/medicine.js";
+import products from "../../data/medicine";
 
 // ===== Utility Functions =====
 function getProductIdFromUrl() {
