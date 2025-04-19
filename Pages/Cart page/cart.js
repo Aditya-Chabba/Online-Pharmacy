@@ -229,7 +229,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (cart.length > 0) {
             // Save cart to localStorage for the payment page
             localStorage.setItem('medicartItems', JSON.stringify(cart));
-            window.location.href = 'payment.html';
+            window.location.href = 'Pages/Payment gateway page/payment.html';
         } else {
             alert('Your cart is empty. Please add items before checkout.');
         }
