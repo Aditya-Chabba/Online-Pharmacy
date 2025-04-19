@@ -1,0 +1,633 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header Styles */
+header {
+    background-color: #ffffff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 15px 0;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo h1 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #333;
+}
+
+.logo span {
+    color: #4CAF50;
+}
+
+.steps {
+    display: flex;
+    align-items: center;
+}
+
+.step {
+    display: flex;
+    align-items: center;
+    margin-right: 30px;
+    position: relative;
+}
+
+.step:last-child {
+    margin-right: 0;
+}
+
+.step:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    right: -20px;
+    top: 50%;
+    width: 10px;
+    height: 2px;
+    background-color: #ddd;
+}
+
+.step-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: #ddd;
+    color: #666;
+    font-size: 14px;
+    font-weight: 600;
+    margin-right: 8px;
+}
+
+.step.active .step-number {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.step.completed .step-number {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.step-name {
+    font-size: 14px;
+    color: #666;
+}
+
+.step.active .step-name {
+    color: #333;
+    font-weight: 500;
+}
+
+/* Main Content Styles */
+main {
+    padding: 40px 0;
+}
+
+.payment-container {
+    display: grid;
+    grid-template-columns: 1fr 350px;
+    gap: 30px;
+}
+
+/* Payment Methods Styles */
+.payment-methods {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    padding: 30px;
+}
+
+.payment-methods h2 {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 25px;
+    color: #333;
+}
+
+.payment-tabs {
+    display: flex;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 25px;
+}
+
+.tab {
+    padding: 10px 20px;
+    cursor: pointer;
+    font-weight: 500;
+    color: #666;
+    position: relative;
+}
+
+.tab.active {
+    color: #4CAF50;
+}
+
+.tab.active::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #4CAF50;
+}
+
+.payment-content {
+    display: none;
+}
+
+.payment-content.active {
+    display: block;
+}
+
+/* UPI Payment Styles */
+.upi-options {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.upi-option {
+    margin-right: 25px;
+    display: flex;
+    align-items: center;
+}
+
+.upi-option input[type="radio"] {
+    margin-right: 8px;
+}
+
+.upi-id-form, .upi-qr-form {
+    display: none;
+}
+
+.upi-id-form.active, .upi-qr-form.active {
+    display: block;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: #555;
+}
+
+.form-group input, .form-group select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus, .form-group select:focus {
+    border-color: #4CAF50;
+    outline: none;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.upi-apps p {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.app-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.app-icons img {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.qr-code {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.qr-code img {
+    width: 200px;
+    height: 200px;
+}
+
+.upi-qr-form p {
+    text-align: center;
+    font-size: 14px;
+    color: #666;
+}
+
+/* Card Payment Styles */
+.card-form {
+    max-width: 500px;
+}
+
+/* Net Banking Styles */
+.popular-banks {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.bank {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+}
+
+.bank:hover {
+    border-color: #4CAF50;
+}
+
+.bank input[type="radio"] {
+    margin-bottom: 8px;
+}
+
+/* Wallet Styles */
+.wallet-options {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.wallet {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+}
+
+.wallet:hover {
+    border-color: #4CAF50;
+}
+
+.wallet input[type="radio"] {
+    margin-right: 10px;
+}
+
+.wallet label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.wallet label img {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+
+/* Order Summary Styles */
+.order-summary {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    padding: 25px;
+    position: sticky;
+    top: 20px;
+}
+
+.order-summary h2 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.order-items {
+    max-height: 250px;
+    overflow-y: auto;
+    margin-bottom: 20px;
+    padding-right: 5px;
+}
+
+.order-item {
+    display: flex;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.order-item:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.order-item-image {
+    width: 50px;
+    height: 50px;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-right: 15px;
+}
+
+.order-item-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.order-item-details {
+    flex: 1;
+}
+
+.order-item-details h4 {
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.order-item-details .item-price {
+    font-size: 13px;
+    color: #666;
+}
+
+.order-item-quantity {
+    font-size: 14px;
+    color: #666;
+    margin-left: 10px;
+}
+
+.order-total {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.order-total > div {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.order-total .total {
+    font-weight: 600;
+    font-size: 16px;
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px solid #ddd;
+}
+
+.payment-actions {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.payment-actions button {
+    flex: 1;
+    padding: 12px 0;
+    border: none;
+    border-radius: 5px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.back-to-cart {
+    background-color: #f1f1f1;
+    color: #333;
+}
+
+.back-to-cart:hover {
+    background-color: #e1e1e1;
+}
+
+.pay-now {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.pay-now:hover {
+    background-color: #3d8b40;
+}
+
+.secure-payment {
+    text-align: center;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+}
+
+.secure-payment i {
+    color: #4CAF50;
+    font-size: 18px;
+    margin-right: 5px;
+}
+
+.secure-payment span {
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.secure-payment p {
+    font-size: 12px;
+    color: #666;
+    margin-top: 5px;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 40px 0 20px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.footer-section h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section ul li {
+    margin-bottom: 8px;
+}
+
+.footer-section ul li a {
+    color: #ddd;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+    color: #4CAF50;
+}
+
+.copyright {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid #444;
+    font-size: 14px;
+    color: #aaa;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal.active {
+    display: flex;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+}
+
+.loader {
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #4CAF50;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 20px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.modal-content.success i {
+    color: #4CAF50;
+    font-size: 60px;
+    margin-bottom: 15px;
+}
+
+.modal-content.success h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.modal-content.success p {
+    margin-bottom: 20px;
+    color: #666;
+}
+
+.modal-content.success button {
+    padding: 12px 25px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.modal-content.success button:hover {
+    background-color: #3d8b40;
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+    .payment-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .order-summary {
+        position: static;
+    }
+}
+
+@media (max-width: 768px) {
+    .steps {
+        display: none;
+    }
+    
+    .popular-banks {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .wallet-options {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .payment-tabs {
+        flex-wrap: wrap;
+    }
+    
+    .tab {
+        flex: 1 0 50%;
+        text-align: center;
+        padding: 10px;
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+}
