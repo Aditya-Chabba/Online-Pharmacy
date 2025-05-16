@@ -9,7 +9,7 @@ A frontend-focused online pharmacy platform providing easy access to medications
 Fronend | Backend
 
 
-## Deplolyed App
+## Deplolyment Link
 Frontend :- https://online-pharmacy-ejgi.onrender.com
 
 
